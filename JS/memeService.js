@@ -10,7 +10,7 @@ var gMeme = {
     selectedLineIdx: 0,
     lines: [{
         txt: 'I sometimes eat Falafel',
-        size: 20,
+        size: 50,
         align: 'left',
         color: 'red'
     }
@@ -19,23 +19,21 @@ var gMeme = {
 
 
 
+
+
+
+
+
+
+
+function setAlignText(pos){
+    gMeme.lines[gMeme.selectedLineIdx].align = pos
+}
+
 function setLine(txt){
     gMeme.lines[gMeme.selectedLineIdx].txt = txt
     renderCanvas()
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 function getMeme(){
     return gMeme
@@ -45,18 +43,8 @@ function getImg() {
     return getImgById(gMeme.selectedImgId)
 }
 
-function setMeme(id) {
-    gMeme = {
-        selectedImgId: id,
-        selectedLineIdx: 0,
-        lines: [{
-            txt: 'I sometimes eat Falafel',
-            size: 20,
-            align: 'center',
-            color: 'black'
-        }
-        ]
-    }
+function setImg(id) {
+    gMeme.selectedImgId = id 
 }
 
 

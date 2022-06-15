@@ -25,7 +25,7 @@
     </header>
 
     <!-- GALLRY -->
-    <div class="gallery-container" style1="display: none;">
+    <div class="gallery-container" style="display: none;">
 
         <!-- FILTER SECTION -->
         <section class="gallery-filter">
@@ -41,7 +41,7 @@
 
 
     <!-- EDITOR  -->
-    <section class="editor-contaioner" style="display: none;">
+    <section class="editor-contaioner" style="display: flex;">
         <!-- CANVAS -->
         <div class="edit-area">
             <canvas width=500 height=530></canvas>
@@ -57,11 +57,11 @@
                     <button class="remove"><i class="material-icons">delete</i></button>
                 </div>
                 <div class="font-control">
-                    <button class="grow "><i class="material-icons">text_increase</i></button>
-                    <button class="shrink"><i class="material-icons">text_decrease</i></button>
-                    <button class="align-left"><i class="material-icons">format_align_left</i></button>
-                    <button class="align-center"><i class="material-icons">format_align_center</i></button>
-                    <button class="align-right"><i class="material-icons">format_align_right</i></button>
+                    <button class="grow" onclick="onChangeTextSize('grow')"><i class="material-icons">text_increase</i></button>
+                    <button class="shrink" onclick="onChangeTextSize('shrink')"><i class="material-icons">text_decrease</i></button>
+                    <button class="align-left" onclick="onAlignText('left')"><i class="material-icons">format_align_left</i></button>
+                    <button class="align-center" onclick="onAlignText('center')"><i class="material-icons">format_align_center</i></button>
+                    <button class="align-right"  onclick="onAlignText('right')"><i class="material-icons">format_align_right</i></button>
                     <input type="text" class="impact" placeholder="impact">
                     <datalist class="datalist" value="font" >
                         <option value="Chocolate">
@@ -84,6 +84,7 @@
 
     </main>
     <script src="JS/memeService.js"></script>
+    <script src="JS/textController.js"></script>
     <script src="JS\memeContoller.js"></script>
 </body>
 

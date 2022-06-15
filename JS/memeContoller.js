@@ -4,6 +4,7 @@ var gElEditor
 var gElCanvas
 var gCtx
 var imgs
+
 function onInit() {
     gElGallery = document.querySelector('.gallery-container')
     gElEditor = document.querySelector('.editor-contaioner')
@@ -11,6 +12,7 @@ function onInit() {
     gCtx = gElCanvas.getContext('2d')
    
     renderImgs()
+    renderCanvas()
 }
 
 function renderImgs() {
@@ -23,8 +25,7 @@ function renderImgs() {
 }
 
 function renderImg() {
-    gElGallery.style.display = 'none'
-    gElEditor.style.display = 'flex'
+
 
     var currImg = getImg()
     var elImg = new Image()
@@ -34,7 +35,10 @@ function renderImg() {
 }
 
 function onSetMeme(id) {
-    setMeme(id)
+    gElGallery.style.display = 'none'
+    gElEditor.style.display = 'flex'
+
+    setImg(id)
     renderImg()
 }
 
@@ -42,19 +46,15 @@ function onSetLine(lineContent){
   setLine(lineContent)
 }
 
-function renderLine(txt){
-    
-    gCtx.font = '48px serif';
-    gCtx.fillText(txt, 10, 50);
-}
-
 function clearCanvas(){
     gCtx.clearRect(0, 0, gElCanvas.width, gElCanvas.height);
 }
 
 function renderCanvas(){
-    const currMeme = getMeme()
+
     clearCanvas()
+
+    const currMeme = getMeme()
 
     renderImg()
 
