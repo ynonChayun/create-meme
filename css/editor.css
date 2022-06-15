@@ -1,12 +1,13 @@
 .editor-contaioner{
-    display: flex;
+    display: none;
     
     gap: 5%;
     max-width: 1200px;
     margin: auto;
     max-height: 545px;
 }
-.edit-control{
+
+.control-area{
     flex-basis: 55%;
     background-color: yellow;
     border-radius: 20px;
@@ -14,7 +15,7 @@
 }
 .edit-area{
     flex-basis: 45%;
-    /* todo: responsive */
+    /* not responsive */
     height: 545px;
 }
 
