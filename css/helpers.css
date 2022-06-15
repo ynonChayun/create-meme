@@ -1,0 +1,40 @@
+.fa{
+    font-family: fa;
+}
+.fa1{
+    font-family: fa1;
+}
+.fa2{
+    font-family: fa2;
+}
+.fa.switch::before{
+    content: '⮃';
+}
+.fa.add::before{
+    content: "\2b";
+}
+.fa.remove::before{
+    content: "\f1f8";
+}
+
+.fa.grow::before{
+    content: "\f1f8";
+}
+.fa.shrink::before{
+    content: "\f1f8";
+}
+.fa.align-left::before{
+    content: "\f1f8";
+}
+.fa.align-center::before{
+    content: "\f1f8";
+}
+.fa.align-right::before{
+    content: "\f1f8";
+}
+.fa.bottom-line::before{
+    content: "\f1f8";
+}
+.fa.color::before{
+    content: "\f1f8";
+}

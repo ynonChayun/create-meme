@@ -18,13 +18,13 @@ var gMeme = {
 
 function getImgs() {
     return createImgs()
-};
+}
 
 function createImgs() {
-    for (var i = 1; i < 19; 1++) {
+    for (var i = 1; i < 19; i++) {
         gImgs.push({
             id: i,
-            url: `meme-imgs (square)\ ${i}.jpg`,
+            url: `meme-imgs (square)/img-${i}.jpg`,
             keywords: ['funny', 'cat']
         })
     }
@@ -35,7 +35,10 @@ function getMeme() {
     return gMeme
 }
 
-function setMeme(meme) {
-    gMeme = meme
-    renderMeme()
+function setMemeById(id) {
+    gMeme = getMemeById(id)
+}
+
+function getMemeById(id) {
+    return gImgs.filter(meme => meme.id === id)[0]
 }

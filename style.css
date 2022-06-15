@@ -2,7 +2,9 @@
 @import '/css/main.css';
 @import '/css/editor.css';
 @import '/css/layout.css';
-
+@import '/css/control-area.css';
+@import '/css/typography.css';
+@import '/css/helpers.css';
 *{
     box-sizing: border-box;
 }

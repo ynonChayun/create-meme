@@ -9,24 +9,31 @@ function onInit() {
     gElEditor = document.querySelector('.editor-contaioner')
     gElCanvas = document.querySelector('canvas')
     gCtx = gElCanvas.getContext('2d')
-    console.log('bibi');
+   
     renderImgs()
 }
 
 function renderImgs() {
     imgs = getImgs()
     var strHTML = ''
-    imgs.forEach(img => strHTML += `<img src=${imgs[i].url} alt="">`)
+    imgs.forEach((img) => strHTML += 
+    `<img src='${img.url}' onclick="onSetMeme(${img.id})">`)
+
     document.querySelector('.gallery-imgs').innerHTML = strHTML
 }
 
-function renderMeme(elMeme) {
+function renderMeme() {
     gElGallery.style.display = 'none'
     gElEditor.style.display = 'flex'
 
-    gCtx.drawImage(getMeme(), 0, 0, gElCanvas.width, gElCanvas.height);
+    var meme = getMeme()
+    var img = new Image()
+    img.src = meme.url
+
+    gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height);
 }
 
-function onSetMeme(meme) {
-    setMeme(meme)
+function onSetMeme(id) {
+    setMemeById(id)
+    renderMeme()
 }

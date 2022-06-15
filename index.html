@@ -23,54 +23,57 @@
     </header>
 
     <!-- GALLRY -->
-    <div class="gallery-container">
+    <div class="gallery-container" style="display: none;">
 
-            <!-- FILTER SECTION -->
+        <!-- FILTER SECTION -->
         <section class="gallery-filter">
             <input type="text" class="filter-txt" placeholder="Search">
             <div class="filter-words">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo, porro!</div>
             <button class="filter-more">more</button>
         </section>
 
-            <!-- GELLERY CONTENT -->
+        <!-- GELLERY CONTENT -->
         <section class="gallery-imgs">
-            <!-- <img src="/meme-imgs (square)/1.jpg" onclick="onSetMeme(this)"> -->
-            <!-- <img src="/meme-imgs (square)/2.jpg" alt="">
-            <img src="/meme-imgs (square)/3.jpg" alt="">
-            <img src="/meme-imgs (square)/4.jpg" alt="">
-            <img src="/meme-imgs (square)/5.jpg" alt="">
-            <img src="/meme-imgs (square)/6.jpg" alt="">
-            <img src="/meme-imgs (square)/7.jpg" alt="">
-            <img src="/meme-imgs (square)/8.jpg" alt="">
-            <img src="/meme-imgs (square)/9.jpg" alt="">
-            <img src="/meme-imgs (square)/10.jpg" alt="">
-            <img src="/meme-imgs (square)/11.jpg" alt="">
-            <img src="/meme-imgs (square)/12.jpg" alt="">
-            <img src="/meme-imgs (square)/13.jpg" alt="">
-            <img src="/meme-imgs (square)/14.jpg" alt="">
-            <img src="/meme-imgs (square)/15.jpg" alt="">
-            <img src="/meme-imgs (square)/16.jpg" alt="">
-            <img src="/meme-imgs (square)/17.jpg" alt="">
-            <img src="/meme-imgs (square)/18.jpg" alt=""> -->
         </section>
     </div>
 
 
     <!-- EDITOR  -->
-    <section class="editor-contaioner"">
-            <!-- CANVAS -->
+    <section class="editor-contaioner">
+        <!-- CANVAS -->
         <div class="edit-area">
             <canvas></canvas>
         </div>
-            <!-- CONTROL AREA -->
+        <!-- CONTROL AREA -->
         <div class="control-area">
-            <input type="text" placeholder="Text" class="input-text-line">
-            <button class="add-text-line">+</button>
+            <div class="control-area-container">
+                <input type="text" placeholder='text text text text' class="input-text-line">
+                <div class="lines-control">
+                    <button class="switch fa"></button>
+                    <button class="add fa"></button>
+                    <button class="remove fa"></button>
+                </div>
+                <div class="font-control">
+                    <button class="grow fa"></button>
+                    <button class="shrink fa"></button>
+                    <button class="align-left fa"></button>
+                    <button class="align-center fa"></button>
+                    <button class="align-right fa"></button>
+                    <datalist class="datalist fa"></datalist>
+                    <button class="bottom-line fa"></button>
+                    <button class="color fa"></button>
+                </div>
+                <div class="efects-container"></div>
+                <div class="save-buttons">
+                    <button class="share-btn"></button>
+                    <a href="#"><button class="download-btn"></button></a>
+                </div>
+            </div>
         </div>
     </section>
 
     </main>
-    <script src="JS\memeService.js"></script>
+    <script src="JS/memeService.js"></script>
     <script src="JS\memeContoller.js"></script>
 </body>
 
