@@ -8,6 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body onload="onInit()">
@@ -23,7 +25,7 @@
     </header>
 
     <!-- GALLRY -->
-    <div class="gallery-container" style="display: none;">
+    <div class="gallery-container" style1="display: none;">
 
         <!-- FILTER SECTION -->
         <section class="gallery-filter">
@@ -39,34 +41,42 @@
 
 
     <!-- EDITOR  -->
-    <section class="editor-contaioner">
+    <section class="editor-contaioner" style="display: none;">
         <!-- CANVAS -->
         <div class="edit-area">
-            <canvas></canvas>
+            <canvas width=500 height=530></canvas>
         </div>
         <!-- CONTROL AREA -->
         <div class="control-area">
-            <div class="control-area-container">
-                <input type="text" placeholder='text text text text' class="input-text-line">
+            <div class="control-area-container" >
+                <input type="text" placeholder='text text text text' class="input-text-line" oninput="onSetLine(this.value)">
                 <div class="lines-control">
-                    <button class="switch fa"></button>
-                    <button class="add fa"></button>
-                    <button class="remove fa"></button>
+                    <button class="switch"><i class="material-icons">swap_vert</i></button>
+
+                    <button class="add"><i class="material-icons">add</i></button>
+                    <button class="remove"><i class="material-icons">delete</i></button>
                 </div>
                 <div class="font-control">
-                    <button class="grow fa"></button>
-                    <button class="shrink fa"></button>
-                    <button class="align-left fa"></button>
-                    <button class="align-center fa"></button>
-                    <button class="align-right fa"></button>
-                    <datalist class="datalist fa"></datalist>
-                    <button class="bottom-line fa"></button>
-                    <button class="color fa"></button>
+                    <button class="grow "><i class="material-icons">text_increase</i></button>
+                    <button class="shrink"><i class="material-icons">text_decrease</i></button>
+                    <button class="align-left"><i class="material-icons">format_align_left</i></button>
+                    <button class="align-center"><i class="material-icons">format_align_center</i></button>
+                    <button class="align-right"><i class="material-icons">format_align_right</i></button>
+                    <input type="text" class="impact" placeholder="impact">
+                    <datalist class="datalist" value="font" >
+                        <option value="Chocolate">
+                        <option value="Coconut">
+                        <option value="Mint">
+                        <option value="Strawberry">
+                        <option value="Vanilla">
+                    </datalist>
+                    <button class="bottom-line"><i class="material-icons">text_format</i></button>
+                    <button class="color"><i class="material-icons">palette</i></button>
                 </div>
                 <div class="efects-container"></div>
                 <div class="save-buttons">
-                    <button class="share-btn"></button>
-                    <a href="#"><button class="download-btn"></button></a>
+                    <button class="share-btn"><i class="material-icons">share</i>share</button>
+                    <a href="#"><button class="download-btn"><i class="material-icons">file_download</i>download</button></a>
                 </div>
             </div>
         </div>

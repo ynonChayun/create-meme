@@ -1,16 +1,3 @@
-/* FONT AWSOME */
-@font-face {
-    font-family: fa;
-    src: url("/css/fonts/fa-solid-900.ttf");
-}
-@font-face {
-    font-family: fa1;
-    src: url("fonts/fa-v4compatibility.ttf");
-}
-@font-face {
-    font-family: fa2;
-    src: url("/css/fonts/fa-brands-400.ttf");
-}
 
 /* POPPINS FONT */
 @font-face {

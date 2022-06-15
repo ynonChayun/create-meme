@@ -22,18 +22,41 @@ function renderImgs() {
     document.querySelector('.gallery-imgs').innerHTML = strHTML
 }
 
-function renderMeme() {
+function renderImg() {
     gElGallery.style.display = 'none'
     gElEditor.style.display = 'flex'
 
-    var meme = getMeme()
-    var img = new Image()
-    img.src = meme.url
+    var currImg = getImg()
+    var elImg = new Image()
+    elImg.src = currImg.url
 
-    gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height);
+    gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height);
 }
 
 function onSetMeme(id) {
-    setMemeById(id)
-    renderMeme()
+    setMeme(id)
+    renderImg()
+}
+
+function onSetLine(lineContent){
+  setLine(lineContent)
+}
+
+function renderLine(txt){
+    
+    gCtx.font = '48px serif';
+    gCtx.fillText(txt, 10, 50);
+}
+
+function clearCanvas(){
+    gCtx.clearRect(0, 0, gElCanvas.width, gElCanvas.height);
+}
+
+function renderCanvas(){
+    const currMeme = getMeme()
+    clearCanvas()
+
+    renderImg()
+
+    renderLine(currMeme.lines[currMeme.selectedLineIdx].txt)
 }
