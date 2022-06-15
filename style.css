@@ -1,0 +1,13 @@
+@import '/css/header.css';
+@import '/css/main.css';
+@import '/css/editor.css';
+@import '/css/layout.css';
+
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+   background-color: #22252C;
+    font-family: Poppins;
+}

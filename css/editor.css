@@ -1,0 +1,26 @@
+.editor-contaioner{
+    display: flex;
+    
+    gap: 5%;
+    max-width: 1200px;
+    margin: auto;
+    max-height: 545px;
+}
+.edit-control{
+    flex-basis: 55%;
+    background-color: yellow;
+    border-radius: 20px;
+    
+}
+.edit-area{
+    flex-basis: 45%;
+    /* todo: responsive */
+    height: 545px;
+}
+
+canvas{
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    border-radius: 20px;
+}

@@ -1,0 +1,42 @@
+.gallery-container {
+    width: 98%;
+    margin: auto;
+  
+}
+
+.header-gallery {
+    width: 100%;
+
+    margin-top: 1.5vh;
+    display: flex;
+    justify-content: space-between;
+    
+    padding: .5rem;
+    border-radius: 30px;
+
+    margin-bottom: 1.5vh;
+
+    background: rgb(12, 152, 185);
+    background: linear-gradient(90deg, rgba(12, 152, 185, 1) 0%, rgba(51, 190, 109, 1) 100%);
+}
+
+.header-gallery .logo {
+    font-size: 1.375rem;
+    margin-inline-start: 4rem;
+    text-transform: uppercase;
+}
+
+.header-anchors a {
+    font-size: 1.3rem;
+    
+    text-decoration: none;
+    text-transform: capitalize;
+}
+
+.header-anchors a:first-child {
+    margin-inline-end: 3rem;
+}
+
+.header-anchors {
+    margin-inline-end: 12rem;
+}
