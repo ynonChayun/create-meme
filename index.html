@@ -25,7 +25,7 @@
     </header>
 
     <!-- GALLRY -->
-    <div class="gallery-container" style="display: none;">
+    <div class="gallery-container" style="display: block;" >
 
         <!-- FILTER SECTION -->
         <section class="gallery-filter">
@@ -41,7 +41,7 @@
 
 
     <!-- EDITOR  -->
-    <section class="editor-contaioner" style="display: flex;">
+    <section class="editor-contaioner" style="display: none;">
         <!-- CANVAS -->
         <div class="edit-area">
             <canvas width=500 height=530></canvas>
@@ -49,11 +49,11 @@
         <!-- CONTROL AREA -->
         <div class="control-area">
             <div class="control-area-container" >
-                <input type="text" placeholder='text text text text' class="input-text-line" oninput="onSetLine(this.value)">
+                <input type="text" placeholder='type your text' class="input-text-line" oninput="onChangeContent(this.value)">
                 <div class="lines-control">
                     <button class="switch"><i class="material-icons">swap_vert</i></button>
 
-                    <button class="add"><i class="material-icons">add</i></button>
+                    <button class="add" onclick="onAddLine()"><i class="material-icons">add</i></button>
                     <button class="remove"><i class="material-icons">delete</i></button>
                 </div>
                 <div class="font-control">
@@ -70,8 +70,8 @@
                         <option value="Strawberry">
                         <option value="Vanilla">
                     </datalist>
-                    <button class="bottom-line"><i class="material-icons">text_format</i></button>
-                    <button class="color"><i class="material-icons">palette</i></button>
+                    <button class="bottom-line"><i class="material-icons" onclick="onSetBottomLine()">text_format</i></button>
+                    <button class="color"><i class="material-icons">palette</i><input type="color" onchange="onSetColor(this.value)"></button>
                 </div>
                 <div class="efects-container"></div>
                 <div class="save-buttons">
@@ -83,9 +83,16 @@
     </section>
 
     </main>
-    <script src="JS/memeService.js"></script>
-    <script src="JS/textController.js"></script>
-    <script src="JS\memeContoller.js"></script>
+
+  <script src="JS/service/storageService.js"></script>
+  <script src="JS/service/lineService.js"></script>
+  <script src="JS/service/memeService.js"></script>
+
+
+  <script src="JS/controller/main.js"></script>
+  <script src="JS/controller/memeContoller.js"></script>
+  <script src="JS/controller/lineController.js"></script>
+
 </body>
 
 </html>
