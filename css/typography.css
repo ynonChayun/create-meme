@@ -4,3 +4,7 @@
     font-family: poppins;
     src: url("/css/fonts/Poppins-ExtraLight.ttf");
 }
+@font-face {
+    font-family: poppins-medium;
+    src: url("/css/fonts/Poppins-Medium.ttf");
+}
