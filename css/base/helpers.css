@@ -1,0 +1,46 @@
+.flex{
+    display: flex;
+}
+.align-items-c{
+    align-items: center;
+}
+.column{
+    flex-direction: column;
+}
+.space-around{
+    justify-content: space-around;
+}
+
+.flex-wrap{
+    flex-wrap: wrap;
+}
+
+.center-items{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.space-between{
+    justify-content: space-between;
+}
+
+.color-white{
+    color: #FFFFFF;
+}
+
+.uppercase{
+    text-transform: uppercase;
+}
+
+.capitalize{
+    text-transform: capitalize;
+}
+
+.border-rad-30{
+    border-radius: 30px;
+}
+
+.border-none{
+    border: none;
+}

@@ -6,8 +6,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+
+    <title>MEME GENERAT</title>
+    <link rel="icon" type="image/x-icon" href="/imgs/favicon.png">
+    <link rel="stylesheet" href="css/styles.css">
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
@@ -15,27 +17,30 @@
 <body onload="onInit()">
 
     <!-- HEADER -->
-    <header class="header-gallery">
-        <div class="logo">logo</div>
+    <header class="header-gallery flex space-between border-rad-30">
+        <div class="logo color-white uppercase">meme generat</div>
 
-        <div class="header-anchors">
-            <a href="#" class="gallery-anchor">gallery</a>
-            <a href="#" class="about-anchor">about</a>
+
+    <div class="header-anchors capitalize">
+            <a href="#" class="gallery-anchor border-rad-30">gallery</a>
+            <a href="#" class="about-anchor color-white">about</a>
         </div>
+        <div class="hamburger center-items"><i
+            class="material-icons">menu</i></div>
     </header>
 
     <!-- GALLRY -->
-    <div class="gallery-container" style="display: block;">
+    <div class="gallery-container " style="display: block;">
 
         <!-- FILTER SECTION -->
-        <section class="gallery-filter">
-            <input type="text" class="filter-txt" placeholder="Search">
-            <div class="filter-words">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo, porro!</div>
-            <button class="filter-more">more</button>
+        <section class="gallery-filter flex">
+            <input type="text" class="filter-txt border-rad-30 border-none" placeholder="Search">
+            <div class="filter-words color-white border-rad-30 capitalize">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo, porro!</div>
+            <button class="filter-more color-white capitalize border-rad-30 border-none">more</button>
         </section>
 
         <!-- GELLERY CONTENT -->
-        <section class="gallery-imgs">
+        <section class="gallery-imgs flex flex-wrap space-around">
         </section>
     </div>
 
@@ -48,8 +53,8 @@
         </div>
         <!-- CONTROL AREA -->
         <div class="control-area">
-            <div class="control-area-container">
-                <input type="text" placeholder='type your text' class="input-text-line"
+            <div class="control-area-container flex column align-items-c">
+                <input type="text" placeholder='type your text' class="input-text-line border-rad-30"
                     oninput="onChangeContent(this.value)">
                 <div class="lines-control">
                     <button class="switch"><i class="material-icons" onclick="onSwitchLines()">swap_vert</i></button>

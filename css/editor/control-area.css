@@ -1,17 +1,16 @@
 .control-area-container {
-    display: flex;
-    flex-direction: column;
     gap: 1.5rem;
-    align-items: center;
+    max-width: 100%;
+    margin: auto;
 }
 
 .input-text-line {
     text-align: center;
     line-height: 2.7rem;
-    border-radius: 30px;
     background-color: #EBEEF3;
     color: #3D3D3D;
-    min-width: 100%;
+
+    width: 100%;
 
     padding-top: 10px;
     border: none;
@@ -23,7 +22,6 @@
     text-transform: uppercase;
     font-family: poppins;
     font-size: 2rem;
-
 }
 
 .lines-control {
@@ -35,7 +33,6 @@
     width: 56px;
     height: 52px;
     border-radius: 10px;
-    /* font-size: 2rem; */
     border: none;
     color: white;
 }
