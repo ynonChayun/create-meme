@@ -17,7 +17,7 @@ function setSizeFont(mode) {
         || mode === 'shrink' && gCurrLine.size === 26) return
 
     gCurrLine.size += mode === 'shrink' ? -2 : 2
-    console.log(gCurrLine);
+
     gCurrLine.height = gCurrLine.size / 1.6666
     gCurrLine.width = gCtx.measureText(gCurrLine.txt).width + 10
 
@@ -55,7 +55,7 @@ function setLine(txt) {
             break;
         case 'center':
             gCurrLine.startX -= (gCurrLine.width - gCtx.measureText(txt).width) / 2
-            console.log(gCurrLine.startX);
+
             break;
         case 'right':
             gCurrLine.startX -= gCurrLine.width - gCtx.measureText(txt).width
@@ -69,7 +69,7 @@ function setLine(txt) {
 function createMeme() {
     const bottomCanvas = document.querySelector('canvas').height - 50
     return {
-        selectedImgId: 1,
+        selectedImgId: 3,
         selectedLineIdx: 1,
         lines: [
             createLine('left', 10, 70),

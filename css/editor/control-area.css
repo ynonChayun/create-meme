@@ -57,11 +57,12 @@
 
 .font-control {
     height: 150px;
-    margin: 0 10px;
+    margin: 0 5px;
+
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: repeat(2, 1fr);
-    grid-column-gap: 2.5rem;
+    grid-column-gap: 2rem;
     align-items: center;
     background-color: #19A59F;
     border-radius: 25px;
@@ -80,13 +81,13 @@
     filter: drop-shadow(0.26px 5px 0 #5c5c5c8f);
 }
 
-.font-control .impact {
+.font-control .font-style {
     height: 50px;
     border-radius: 10px;
     grid-column: span 3;
 }
 
-.impact::placeholder {
+.font-style::placeholder , .font-style{
     text-transform: uppercase;
     color: black;
     padding-left: .6rem;
@@ -108,21 +109,22 @@
 }
 
 .save-buttons button {
-    /* background-color: #fff; */
+
     border-radius: 15px;
     height: 50px;
     font-size: 1.2rem;
     text-transform: uppercase;
-    flex-grow: 1;
     border: none;
 }
 
-.share-btn{
+.share-btn {
     background-color: #1E7CD3;
     filter: drop-shadow(0.31px 6px 0 #165C9C);
+    flex-grow: 1;
 }
-.download-btn{
+
+.download-btn {
     background-color: #8F44BB;
     filter: drop-shadow(0.31px 6px 0 #632687);
-    
+    flex-grow: 1;
 }

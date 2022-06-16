@@ -12,22 +12,33 @@
   
 }
 
-.header-anchors a {
+ a {
     font-size: 1.3rem;
     text-decoration: none;
 }
 
-.header-anchors a:first-child {
+.header-anchors >* {
     margin-inline-end: 3rem;
 }
-
-.header-anchors {
-    margin-inline-end: 12%;
+.header-anchors a:last-child {
+    margin-inline-end: 4rem;
+    
 }
+
 
 .gallery-anchor{
-    background-color: #FEFEFE;
+    color: #FEFEFE;
     padding: 2px 16px;
-    color: #21AC91;
+    
 }
 
+.memes-anchor{
+    color: #FEFEFE;
+    padding: 2px 16px;
+    
+}
+
+.active{
+    background-color: #FEFEFE;
+    color: #21AC91;
+}

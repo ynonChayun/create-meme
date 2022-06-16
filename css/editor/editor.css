@@ -1,3 +1,4 @@
+
 .editor-contaioner{
     display: flex;
     max-width: 1200px;
@@ -11,11 +12,14 @@
     background-color: #ebeef31f;
     border-radius: 20px;
     padding: 20px;
+    flex-shrink: 1;
 }
 
 .edit-area{
     flex-basis: 45%;
-    max-height: 100%
+    max-height: 100%;
+    flex-shrink: 2;
+    
 }
 
 canvas{

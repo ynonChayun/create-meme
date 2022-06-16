@@ -18,6 +18,8 @@ function onInit() {
     gElCanvas = document.querySelector('canvas')
     gCtx = gElCanvas.getContext('2d')
 
+
+
     renderImgs()
     renderCanvas()
 
@@ -70,7 +72,7 @@ function onAddLine() {
 
     renderCanvas()
     clearTxtInput()
-    renderColorInput()
+    renderColors()
 }
 
 //Response to click on color input
@@ -113,6 +115,30 @@ function onDeleteLine() {
 function movedLine() {
 
     renderCanvas()
+    renderFontInput()
     clearTxtInput()
-    renderColorInput()
+    renderColors()
+}
+
+
+function onStrokeColor(strokeColor) {
+    setStrokeColor(strokeColor)
+    renderCanvas()
+}
+
+
+function onSetFont(font) {
+    setFont(font)
+    renderCanvas()
+}
+
+
+function setGallery(elBtn) {
+    const elGallery = document.querySelector('.gallery-container')
+    if (elGallery.style.display === 'block') return
+
+    elGallery.style.display = 'block'
+    document.querySelector('.editor-contaioner').style.display = 'none'
+    console.log(elBtn);
+    elBtn.classList.toggle('active')
 }

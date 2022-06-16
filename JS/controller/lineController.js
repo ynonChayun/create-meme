@@ -11,8 +11,9 @@ function renderLines() {
 
 function renderLine(line, isSelected) {
 
-    gCtx.font = line.size + 'px ' + 'serif';
+    gCtx.font = line.size + 'px ' + line.font;
     gCtx.fillStyle = line.color
+    gCtx.strokeStyle = line.stroke
 
     const txt = line.txt
 
@@ -22,10 +23,8 @@ function renderLine(line, isSelected) {
     const width = line.width
     const height = line.height
 
-    if (line.haveBottomLine) {
-        renderBaseLine(x, y + 6, width)
-    }
     gCtx.fillText(txt, x, y);
+    gCtx.strokeText(txt, x, y);
     if (isSelected) {
         renderBackground(x, y, width, height)
     }
@@ -47,17 +46,25 @@ function renderBackground(x, y, width, height) {
     gCtx.fill()
 }
 
-//render base line
-function renderBaseLine(x, y, width) {
-    gCtx.beginPath();
-    gCtx.strokeStyle = "BLACK";
-    gCtx.moveTo(x, y);
-    gCtx.lineTo(x + width, y);
-    gCtx.stroke()
-}
 
    // const lines = []
 
     // if(gCtx.measureText(txt).width + x >= gElCanvas.width - 40){
     //     lines.push()
     // }
+
+
+
+//function draw bottom line
+    
+// if (line.haveBottomLine) {
+//     renderBaseLine(x, y + 6, width)
+// }
+
+// function renderBaseLine(x, y, width) {
+//     gCtx.beginPath();
+//     gCtx.strokeStyle = "BLACK";
+//     gCtx.moveTo(x, y);
+//     gCtx.lineTo(x + width, y);
+//     gCtx.stroke()
+// }

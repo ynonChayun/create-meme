@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>MEME GENERAT</title>
+    <title>MEME GENERATE</title>
     <link rel="icon" type="image/x-icon" href="/imgs/favicon.png">
     <link rel="stylesheet" href="css/styles.css">
 
@@ -16,26 +16,48 @@
 
 <body onload="onInit()">
 
+    <!-- MENU MODAL -->
+    <div class="modal">
+        <p class="title-modal border-rad-30">MEME GENEARETE</p>
+        <a href="#" class="gallery-anchorM" onclick="closeMenu();setGallery()">gallery</a>
+        <a href="#" class="memes-anchorM" onclick="closeMenu();oprnMemes()">memes</a>
+        <a href="#" class="about-anchorM" onclick="closeMenu();oprnView()" >about</a>
+    </div>
+    <!-- SCREEN DESIGN -->
+    <div class="main-screen" onclick="closeMenu()"></div>
+
+    <!-- Data-List FOR -Fonts -->
+    <datalist id="fonts" >
+        <option value="IMPACT">
+        <option value="Arial">
+        <option value="cursive">
+        <option value="Tahoma">
+        <option value="Georgia">
+        <option value="Courier New">
+    </datalist>
+
+
     <!-- HEADER -->
     <header class="header-gallery flex space-between border-rad-30">
-        <div class="logo color-white uppercase">meme generat</div>
+        <div class="logo color-white uppercase">meme generate</div>
 
 
-    <div class="header-anchors capitalize">
-            <a href="#" class="gallery-anchor border-rad-30">gallery</a>
+        <div class="header-anchors capitalize">
+            <a href="#" class="gallery-anchor border-rad-30" onclick="setGallery(this)">gallery</a>
+            <a href="#" class="memes-anchor border-rad-30">memes</a>
             <a href="#" class="about-anchor color-white">about</a>
         </div>
-        <div class="hamburger center-items"><i
-            class="material-icons">menu</i></div>
+        <div class="hamburger center-items" onclick="addMenu()"><i class="material-icons">menu</i></div>
     </header>
 
     <!-- GALLRY -->
-    <div class="gallery-container " style="display: block;">
+    <div class="gallery-container" style="display: block;">
 
         <!-- FILTER SECTION -->
         <section class="gallery-filter flex">
             <input type="text" class="filter-txt border-rad-30 border-none" placeholder="Search">
-            <div class="filter-words color-white border-rad-30 capitalize">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo, porro!</div>
+            <div class="filter-words color-white border-rad-30 capitalize">Lorem ipsum dolor sit amet, consectetur
+                adipisicing elit. Illo, porro!</div>
             <button class="filter-more color-white capitalize border-rad-30 border-none">more</button>
         </section>
 
@@ -68,29 +90,23 @@
                     <button class="shrink" onclick="onChangeTextSize('shrink')"><i
                             class="material-icons">text_decrease</i></button>
 
-                    <button class="grow" onclick="onMoveLine('up')"><i
-                            class="material-icons">arrow_upward</i></button>
+                    <button class="grow" onclick="onMoveLine('up')"><i class="material-icons">arrow_upward</i></button>
                     <button class="shrink" onclick="onMoveLine('down')"><i
                             class="material-icons">arrow_downward</i></button>
 
-                    <button class="bottom-line"><i class="material-icons"
-                            onclick="onSetBottomLine()">text_format</i></button>
+                    <button class="stroke-color"><i class="material-icons">text_format</i> <input type="color"
+                            class="input-stroke" onchange="onStrokeColor(this.value)"></button>
                     <button class="color"><i class="material-icons">palette</i><input type="color" class="input-color"
                             onchange="onSetColor(this.value)"></button>
-                    <input type="text" class="impact" placeholder="impact">
+                    <input list="fonts" id="fonts" type="text" class="font-style" placeholder="impact" 
+                    onchange="onSetFont(this.value)" >
                     <button class="align-left" onclick="onAlignText('left')"><i
                             class="material-icons">format_align_left</i></button>
                     <button class="align-center" onclick="onAlignText('center')"><i
                             class="material-icons">format_align_center</i></button>
                     <button class="align-right" onclick="onAlignText('right')"><i
                             class="material-icons">format_align_right</i></button>
-                    <datalist class="datalist" value="font">
-                        <option value="Chocolate">
-                        <option value="Coconut">
-                        <option value="Mint">
-                        <option value="Strawberry">
-                        <option value="Vanilla">
-                    </datalist>
+
                 </div>
                 <div class="efects-container"></div>
                 <div class="save-buttons">
@@ -109,7 +125,7 @@
     <script src="JS/service/lineService.js"></script>
     <script src="JS/service/memeService.js"></script>
 
-
+    <script src="JS/controller/navController.js"></script>
     <script src="JS/controller/main.js"></script>
     <script src="JS/controller/memeContoller.js"></script>
     <script src="JS/controller/lineController.js"></script>

@@ -15,7 +15,7 @@ function renderImgs() {
 function renderImg() {
     var currImg = getImg()
     var elImg = new Image()
-    
+
     elImg.src = currImg.url
 
     gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height);
@@ -35,12 +35,16 @@ function renderCanvas() {
 }
 
 //Clear the text input while adding a line
-function clearTxtInput(){
+function clearTxtInput() {
     document.querySelector('.input-text-line').value = ''
 }
 
 //Renders the current color on color input
-function renderColorInput(){
+function renderColors() {
     document.querySelector('.input-color').value = getCurrLine().color
+    document.querySelector('.input-stroke').value = getCurrLine().stroke
 }
 
+function renderFontInput(){
+    document.querySelector('.font-style').value = getCurrLine().font
+}

@@ -41,11 +41,13 @@ function createLine(align = 'left ', startX, startY) {
         size: 50,
         align,
         color: '#000000',
+        stroke: '#000000',
         haveBottomLine: false,
         startX,
         startY,
         width: 350,
         height: 40,
+        font: 'IMPACT'
     }
 }
 
@@ -96,4 +98,12 @@ function deleteCurrLine() {
 
     gMeme.selectedLineIdx = gMeme.lines.length - 1
     setCurrLine(gMeme.selectedLineIdx)
+}
+
+function setStrokeColor(color) {
+    gCurrLine.stroke = color
+}
+
+function setFont(font) {
+    gCurrLine.font = font
 }

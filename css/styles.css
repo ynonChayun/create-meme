@@ -15,3 +15,6 @@
 /* EDITOR */
 @import '/css/editor/editor.css';
 @import '/css/editor/control-area.css';
+
+/* MODAL */
+@import '/css/modal.css'
