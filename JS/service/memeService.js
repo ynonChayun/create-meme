@@ -1,6 +1,6 @@
 'use strict'
 
-
+var gIsEmpty = false
 var gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
 
 // { id: 1, url: 'img/1.jpg', keywords: ['funny', 'cat'] }
@@ -17,7 +17,10 @@ function setSizeFont(mode) {
         || mode === 'shrink' && gCurrLine.size === 26) return
 
     gCurrLine.size += mode === 'shrink' ? -2 : 2
+    console.log(gCurrLine);
     gCurrLine.height = gCurrLine.size / 1.6666
+    gCurrLine.width = gCtx.measureText(gCurrLine.txt).width + 10
+
 }
 
 function setBottomLine() {
@@ -83,4 +86,11 @@ function _saveMemeToStorage() {
 
 function _loadMemefromStorage() {
     loadFromStorage(key = 'meme')
+}
+
+function isEmpty() {
+    return gIsEmpty
+}
+function setIsEmpty(bool) {
+    gIsEmpty = bool
 }

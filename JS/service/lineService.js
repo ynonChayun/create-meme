@@ -13,17 +13,25 @@ function getCurrWidth() {
     return gCurrLine.width
 }
 
-function addNewLine(align, x, y) {
-    gMeme.selectedLineIdx++
-    console.log(gCurrLine);
-    if (gMeme.selectedLineIdx == 2) {
-        var newLine = createLine(align, x, y)
+function addNewLine() {
+    const canvasHeight = document.querySelector('canvas').height
+
+    if (gMeme.lines.length === 0) {
+        var newLine = createLine('left', 10, 50)
+    }
+    else if (gMeme.lines.length === 1) {
+        newLine = createLine('left', 10, canvasHeight - 50)
+    }
+    else if (gMeme.lines.length === 2) {
+        newLine = createLine('left', 10, canvasHeight / 2)
     }
     else {
-        var newLine = createLine(align, x, gCurrLine.startY + 60)
+        newLine = createLine('left', 10, gCurrLine.startY + 60)
     }
+
     gMeme.lines.push(newLine)
     gCurrLine = newLine
+    gMeme.selectedLineIdx = gMeme.lines.length - 1
 }
 
 function createLine(align = 'left ', startX, startY) {
@@ -32,11 +40,11 @@ function createLine(align = 'left ', startX, startY) {
         txt: 'Type Your Text',
         size: 50,
         align,
-        color: 'black',
+        color: '#000000',
         haveBottomLine: false,
         startX,
         startY,
-        width: 460,
+        width: 350,
         height: 40,
     }
 }
@@ -51,11 +59,6 @@ function moveLine(mode) {
 
     gCurrLine.startY += mode === 'up' ? -4 : 4
 }
-
-
-
-
-
 
 function checkLine(offsetX, offsetY) {
     const lineIdx = gMeme.lines.findIndex(line => {
@@ -74,13 +77,23 @@ function checkLine(offsetX, offsetY) {
 }
 
 function switchLines() {
-    console.log(gMeme.selectedLineIdx);
-    console.log(gMeme.lines.length);
-    if (gMeme.selectedLineIdx + 1 === gMeme.lines.length){
+    if (gMeme.selectedLineIdx + 1 === gMeme.lines.length) {
         gMeme.selectedLineIdx = 0
-    }else{
+    } else {
         gMeme.selectedLineIdx++
     }
-    console.log(gMeme.selectedLineIdx);
+    setCurrLine(gMeme.selectedLineIdx)
+}
+
+function deleteCurrLine() {
+    gMeme.lines.splice(gMeme.selectedLineIdx, 1)
+
+    if (!gMeme.lines.length) {
+        setIsEmpty(true)
+
+        return
+    }
+
+    gMeme.selectedLineIdx = gMeme.lines.length - 1
     setCurrLine(gMeme.selectedLineIdx)
 }

@@ -41,6 +41,6 @@ function clearTxtInput(){
 
 //Renders the current color on color input
 function renderColorInput(){
-    document.querySelector('.input-color').value = getCurrLine.color
+    document.querySelector('.input-color').value = getCurrLine().color
 }
 

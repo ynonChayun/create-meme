@@ -25,7 +25,7 @@
     </header>
 
     <!-- GALLRY -->
-    <div class="gallery-container" style="display: none;">
+    <div class="gallery-container" style="display: block;">
 
         <!-- FILTER SECTION -->
         <section class="gallery-filter">
@@ -41,7 +41,7 @@
 
 
     <!-- EDITOR  -->
-    <section class="editor-contaioner" style1="display: none;">
+    <section class="editor-contaioner" style="display: none;">
         <!-- CANVAS -->
         <div class="edit-area">
             <canvas width=500 height=530 onclick="onCanvasClick(event)"></canvas>
@@ -55,7 +55,7 @@
                     <button class="switch"><i class="material-icons" onclick="onSwitchLines()">swap_vert</i></button>
 
                     <button class="add" onclick="onAddLine()"><i class="material-icons">add</i></button>
-                    <button class="remove"><i class="material-icons">delete</i></button>
+                    <button class="remove"><i class="material-icons" onclick="onDeleteLine()">delete</i></button>
                 </div>
                 <div class="font-control">
                     <button class="grow" onclick="onChangeTextSize('grow')"><i

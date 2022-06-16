@@ -31,18 +31,24 @@ function onChangeContent(lineContent) {
 
 //Response to click buttons grow/shrink  font size
 function onChangeTextSize(mode) {
+    if (isEmpty()) return
+
     setSizeFont(mode)
     renderCanvas()
 }
 
 //Response to click buttons center/left/right align text
 function onAlignText(pos) {
+    if (isEmpty()) return
+
     setAlignText(pos)
     renderCanvas()
 }
 
 //Response to click button baseLine - bottom
 function onSetBottomLine() {
+    if (isEmpty()) return
+
     setBottomLine()
     renderCanvas()
 }
@@ -58,8 +64,9 @@ function onSetMeme(id) {
 
 //Response to click on add line button
 function onAddLine() {
-    const middleCanvas = gElCanvas.height / 2
-    addNewLine('left', 10, middleCanvas)
+    setIsEmpty(false)
+
+    addNewLine()
 
     renderCanvas()
     clearTxtInput()
@@ -68,28 +75,44 @@ function onAddLine() {
 
 //Response to click on color input
 function onSetColor(color) {
+    if (isEmpty()) return
+
     setColor(color)
     renderCanvas()
 }
 
 function onMoveLine(mode) {
+    if (isEmpty()) return
+
     moveLine(mode)
     renderCanvas()
 }
 
 function onCanvasClick({ offsetX, offsetY }) {
+    if (isEmpty()) return
 
     if (checkLine(offsetX, offsetY)) {
-        renderCanvas()
-        clearTxtInput()
-        renderColorInput()
+        movedLine()
     }
 }
 
 function onSwitchLines() {
+    if (isEmpty()) return
+
     switchLines()
+    movedLine()
+}
+
+function onDeleteLine() {
+    if (isEmpty()) return
+
+    deleteCurrLine()
+    movedLine()
+}
+
+function movedLine() {
+
     renderCanvas()
     clearTxtInput()
     renderColorInput()
 }
-
