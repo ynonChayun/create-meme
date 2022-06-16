@@ -2,10 +2,10 @@
 
 function renderLines() {
     const meme = getMeme()
-    var isSelected = false
+
     meme.lines.forEach((line, index) => {
-        if (index === meme.selectedLineIdx) isSelected = true
-        renderLine(line, isSelected)
+        if (index === meme.selectedLineIdx) renderLine(line, true)
+        else renderLine(line, false)
     })
 }
 
@@ -21,7 +21,6 @@ function renderLine(line, isSelected) {
 
     const width = line.width
     const height = line.height
-    console.log(height);
 
     if (line.haveBottomLine) {
         renderBaseLine(x, y + 6, width)
@@ -44,13 +43,9 @@ function renderBackground(x, y, width, height) {
     gCtx.closePath()
     gCtx.stroke()
 
-
-
-    gCtx.stroke();
     gCtx.fillStyle = "#dbe0dd65";
     gCtx.fill()
 }
-
 
 //render base line
 function renderBaseLine(x, y, width) {
@@ -60,16 +55,6 @@ function renderBaseLine(x, y, width) {
     gCtx.lineTo(x + width, y);
     gCtx.stroke()
 }
-
-
-
-
-
-
-
-
-
-
 
    // const lines = []
 

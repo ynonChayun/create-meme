@@ -20,7 +20,7 @@ function onInit() {
 
     renderImgs()
     renderCanvas()
-    
+
 }
 
 // Response to change txt in input
@@ -56,8 +56,40 @@ function onSetMeme(id) {
     renderCanvas()
 }
 
-function onAddLine(){
-    addLine()
+//Response to click on add line button
+function onAddLine() {
+    const middleCanvas = gElCanvas.height / 2
+    addNewLine('left', 10, middleCanvas)
+
     renderCanvas()
     clearTxtInput()
+    renderColorInput()
 }
+
+//Response to click on color input
+function onSetColor(color) {
+    setColor(color)
+    renderCanvas()
+}
+
+function onMoveLine(mode) {
+    moveLine(mode)
+    renderCanvas()
+}
+
+function onCanvasClick({ offsetX, offsetY }) {
+
+    if (checkLine(offsetX, offsetY)) {
+        renderCanvas()
+        clearTxtInput()
+        renderColorInput()
+    }
+}
+
+function onSwitchLines() {
+    switchLines()
+    renderCanvas()
+    clearTxtInput()
+    renderColorInput()
+}
+

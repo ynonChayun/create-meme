@@ -62,7 +62,7 @@
     height: 150px;
     margin: 0 10px;
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     grid-template-rows: repeat(2, 1fr);
     grid-column-gap: 2.5rem;
     align-items: center;
@@ -86,7 +86,7 @@
 .font-control .impact {
     height: 50px;
     border-radius: 10px;
-    grid-column: 1/ 4;
+    grid-column: span 3;
 }
 
 .impact::placeholder {

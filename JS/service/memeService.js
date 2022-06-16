@@ -63,56 +63,20 @@ function setLine(txt) {
 
 }
 
-function getImg() {
-    return getImgById(gMeme.selectedImgId)
-}
-
-function setImg(id) {
-    gMeme.selectedImgId = id
-}
-
-function createImgs() {
-    const imgs = []
-    for (var i = 1; i < 19; i++) {
-        imgs.push({
-            id: i,
-            url: `meme-imgs (square)/img-${i}.jpg`,
-            keywords: ['funny', 'cat']
-        })
-    }
-    return imgs
-}
-
-function getImgById(id) {
-    return gImgs.filter(meme => meme.id === id)[0]
-}
-
 function createMeme() {
+    const bottomCanvas = document.querySelector('canvas').height - 50
     return {
         selectedImgId: 1,
-        selectedLineIdx: 0,
-        lines: [{
-            txt: 'Type Your Text',
-            size: 50,
-            align: 'left',
-            color: 'black',
-            haveBottomLine: false,
-            startX: 10,
-            startY: 50,
-            width: 460,
-            height: 30,
-        }
+        selectedLineIdx: 1,
+        lines: [
+            createLine('left', 10, 70),
+            createLine('left', 10, bottomCanvas)
         ]
     }
 }
 
-function getImgs() {
-    gImgs = loadFromStorage('imgs')
-    if (!imgs) gImgs = createImgs()
 
-    return gImgs
-}
-
+// storage helper functions
 function _saveMemeToStorage() {
     saveToStorage(key = 'meme', value = gMeme)
 }

@@ -25,7 +25,7 @@
     </header>
 
     <!-- GALLRY -->
-    <div class="gallery-container" style="display: block;" >
+    <div class="gallery-container" style="display: none;">
 
         <!-- FILTER SECTION -->
         <section class="gallery-filter">
@@ -41,42 +41,57 @@
 
 
     <!-- EDITOR  -->
-    <section class="editor-contaioner" style="display: none;">
+    <section class="editor-contaioner" style1="display: none;">
         <!-- CANVAS -->
         <div class="edit-area">
-            <canvas width=500 height=530></canvas>
+            <canvas width=500 height=530 onclick="onCanvasClick(event)"></canvas>
         </div>
         <!-- CONTROL AREA -->
         <div class="control-area">
-            <div class="control-area-container" >
-                <input type="text" placeholder='type your text' class="input-text-line" oninput="onChangeContent(this.value)">
+            <div class="control-area-container">
+                <input type="text" placeholder='type your text' class="input-text-line"
+                    oninput="onChangeContent(this.value)">
                 <div class="lines-control">
-                    <button class="switch"><i class="material-icons">swap_vert</i></button>
+                    <button class="switch"><i class="material-icons" onclick="onSwitchLines()">swap_vert</i></button>
 
                     <button class="add" onclick="onAddLine()"><i class="material-icons">add</i></button>
                     <button class="remove"><i class="material-icons">delete</i></button>
                 </div>
                 <div class="font-control">
-                    <button class="grow" onclick="onChangeTextSize('grow')"><i class="material-icons">text_increase</i></button>
-                    <button class="shrink" onclick="onChangeTextSize('shrink')"><i class="material-icons">text_decrease</i></button>
-                    <button class="align-left" onclick="onAlignText('left')"><i class="material-icons">format_align_left</i></button>
-                    <button class="align-center" onclick="onAlignText('center')"><i class="material-icons">format_align_center</i></button>
-                    <button class="align-right"  onclick="onAlignText('right')"><i class="material-icons">format_align_right</i></button>
+                    <button class="grow" onclick="onChangeTextSize('grow')"><i
+                            class="material-icons">text_increase</i></button>
+                    <button class="shrink" onclick="onChangeTextSize('shrink')"><i
+                            class="material-icons">text_decrease</i></button>
+
+                    <button class="grow" onclick="onMoveLine('up')"><i
+                            class="material-icons">arrow_upward</i></button>
+                    <button class="shrink" onclick="onMoveLine('down')"><i
+                            class="material-icons">arrow_downward</i></button>
+
+                    <button class="bottom-line"><i class="material-icons"
+                            onclick="onSetBottomLine()">text_format</i></button>
+                    <button class="color"><i class="material-icons">palette</i><input type="color" class="input-color"
+                            onchange="onSetColor(this.value)"></button>
                     <input type="text" class="impact" placeholder="impact">
-                    <datalist class="datalist" value="font" >
+                    <button class="align-left" onclick="onAlignText('left')"><i
+                            class="material-icons">format_align_left</i></button>
+                    <button class="align-center" onclick="onAlignText('center')"><i
+                            class="material-icons">format_align_center</i></button>
+                    <button class="align-right" onclick="onAlignText('right')"><i
+                            class="material-icons">format_align_right</i></button>
+                    <datalist class="datalist" value="font">
                         <option value="Chocolate">
                         <option value="Coconut">
                         <option value="Mint">
                         <option value="Strawberry">
                         <option value="Vanilla">
                     </datalist>
-                    <button class="bottom-line"><i class="material-icons" onclick="onSetBottomLine()">text_format</i></button>
-                    <button class="color"><i class="material-icons">palette</i><input type="color" onchange="onSetColor(this.value)"></button>
                 </div>
                 <div class="efects-container"></div>
                 <div class="save-buttons">
                     <button class="share-btn"><i class="material-icons">share</i>share</button>
-                    <a href="#"><button class="download-btn"><i class="material-icons">file_download</i>download</button></a>
+                    <a href="#"><button class="download-btn"><i
+                                class="material-icons">file_download</i>download</button></a>
                 </div>
             </div>
         </div>
@@ -84,14 +99,15 @@
 
     </main>
 
-  <script src="JS/service/storageService.js"></script>
-  <script src="JS/service/lineService.js"></script>
-  <script src="JS/service/memeService.js"></script>
+    <script src="JS/service/storageService.js"></script>
+    <script src="JS/service/imgsService.js"></script>
+    <script src="JS/service/lineService.js"></script>
+    <script src="JS/service/memeService.js"></script>
 
 
-  <script src="JS/controller/main.js"></script>
-  <script src="JS/controller/memeContoller.js"></script>
-  <script src="JS/controller/lineController.js"></script>
+    <script src="JS/controller/main.js"></script>
+    <script src="JS/controller/memeContoller.js"></script>
+    <script src="JS/controller/lineController.js"></script>
 
 </body>
 
