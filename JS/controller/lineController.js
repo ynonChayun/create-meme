@@ -10,7 +10,6 @@ function renderLines() {
 }
 
 function renderLine(line, isSelected) {
-
     gCtx.font = line.size + 'px ' + line.font;
     gCtx.fillStyle = line.color
     gCtx.strokeStyle = line.stroke
@@ -22,7 +21,7 @@ function renderLine(line, isSelected) {
 
     const width = line.width
     const height = line.height
-
+   
     gCtx.fillText(txt, x, y);
     gCtx.strokeText(txt, x, y);
     if (isSelected) {
@@ -32,13 +31,14 @@ function renderLine(line, isSelected) {
 
 //render the background hover text
 function renderBackground(x, y, width, height) {
-    const padd = 8
+    
+    const padd = 12
     gCtx.beginPath();
     gCtx.strokeStyle = "BLACK";
     gCtx.moveTo(x - padd, y + padd);
     gCtx.lineTo(x - padd, y - height - padd);
     gCtx.lineTo(x + width + padd, y - height - padd);
-    // gCtx.lineTo(x + padd + width, y + padd);
+    gCtx.lineTo(x + padd + width, y + padd);
     gCtx.closePath()
     gCtx.stroke()
 

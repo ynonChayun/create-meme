@@ -14,7 +14,6 @@ function getMemes(){
     gMemes = loadMemesFromStorage()
 
     if(!gMemes || !gMemes.length){
-        console.log('hasent memes');
         gMemes = []
     }else{
         return gMemes

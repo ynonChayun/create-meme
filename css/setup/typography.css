@@ -2,9 +2,9 @@
 /* POPPINS FONT */
 @font-face {
     font-family: poppins;
-    src: url("/css/fonts/Poppins-ExtraLight.ttf");
+    src: url("../fonts/Poppins-ExtraLight.ttf");
 }
 @font-face {
     font-family: poppins-medium;
-    src: url("/css/fonts/Poppins-Medium.ttf");
+    src: url("../fonts/Poppins-Medium.ttf");
 }
