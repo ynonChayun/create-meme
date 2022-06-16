@@ -1,23 +1,25 @@
 
 /* BASIC */
-@import '/css/base/basic.css';
-@import '/css/base/helpers.css';
-@import '/css/setup/typography.css';
+@import '../css/base/basic.css';
+@import '../css/base/helpers.css';
+@import '../css/setup/typography.css';
 
 /* MQ */
-@import '/css/mq/mq.css';
+@import '../css/mq/mq.css';
 
 /* GALLERY */
-@import '/css/header/header.css';
-@import '/css/gallery/gallery.css';
-@import '/css/gallery/scroll-bar.css';
+@import '../css/header/header.css';
+
+@import '../css/gallery/gallery.css';
+
+@import '../css/gallery/scroll-bar.css';
 
 /* EDITOR */
-@import '/css/editor/editor.css';
-@import '/css/editor/control-area.css';
+@import '../css/editor/editor.css';
+@import '../css/editor/control-area.css';
 
 /* MODAL */
-@import '/css/modal.css';
+@import '../css/modal.css';
 
 /* MEMES */
-@import '/css/memes-page.css'
+@import '../css/memes-page.css'

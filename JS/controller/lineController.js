@@ -38,7 +38,7 @@ function renderBackground(x, y, width, height) {
     gCtx.moveTo(x - padd, y + padd);
     gCtx.lineTo(x - padd, y - height - padd);
     gCtx.lineTo(x + width + padd, y - height - padd);
-    gCtx.lineTo(x + padd + width, y + padd);
+    // gCtx.lineTo(x + padd + width, y + padd);
     gCtx.closePath()
     gCtx.stroke()
 
