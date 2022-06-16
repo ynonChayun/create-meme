@@ -17,4 +17,7 @@
 @import '/css/editor/control-area.css';
 
 /* MODAL */
-@import '/css/modal.css'
+@import '/css/modal.css';
+
+/* MEMES */
+@import '/css/memes-page.css'

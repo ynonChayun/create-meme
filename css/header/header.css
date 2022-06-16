@@ -25,7 +25,10 @@
     
 }
 
-
+.about-anchor{
+    padding: 2px 16px;
+    border-radius: 30px;
+}
 .gallery-anchor{
     color: #FEFEFE;
     padding: 2px 16px;
@@ -41,4 +44,6 @@
 .active{
     background-color: #FEFEFE;
     color: #21AC91;
+  
+
 }

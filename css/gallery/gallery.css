@@ -60,3 +60,12 @@
     width: 200px;
     margin-bottom: 1rem;
 }
+
+.filter-words button{
+    background-color: transparent;
+    border: none;
+    font-size: 1rem;
+    font-family: poppins;
+    color: white;
+    cursor: pointer;
+}

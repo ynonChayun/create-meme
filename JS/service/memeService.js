@@ -1,12 +1,25 @@
 'use strict'
 
 var gIsEmpty = false
-var gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
+var gImgs  
 
-// { id: 1, url: 'img/1.jpg', keywords: ['funny', 'cat'] }
-var gImgs
+
+
 var gMeme = createMeme()
 var gCurrLine = gMeme.lines[gMeme.selectedLineIdx]
+
+var gMemes = []
+
+function getMemes(){
+    gMemes = loadMemesFromStorage()
+
+    if(!gMemes || !gMemes.length){
+        console.log('hasent memes');
+        gMemes = []
+    }else{
+        return gMemes
+    }
+}
 
 function getMeme() {
     return gMeme
@@ -67,7 +80,7 @@ function setLine(txt) {
 }
 
 function createMeme() {
-    const bottomCanvas = document.querySelector('canvas').height - 50
+    const bottomCanvas = document.querySelector('.main-canvas').height - 50
     return {
         selectedImgId: 3,
         selectedLineIdx: 1,
@@ -94,3 +107,5 @@ function isEmpty() {
 function setIsEmpty(bool) {
     gIsEmpty = bool
 }
+
+

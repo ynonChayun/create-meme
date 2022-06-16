@@ -19,15 +19,15 @@
     <!-- MENU MODAL -->
     <div class="modal">
         <p class="title-modal border-rad-30">MEME GENEARETE</p>
-        <a href="#" class="gallery-anchorM" onclick="closeMenu();setGallery()">gallery</a>
-        <a href="#" class="memes-anchorM" onclick="closeMenu();oprnMemes()">memes</a>
-        <a href="#" class="about-anchorM" onclick="closeMenu();oprnView()" >about</a>
+        <a href="#" class="gallery-anchorM" onclick="closeMenu();onSetGallery(this)">gallery</a>
+        <a href="#" class="memes-anchorM" onclick="closeMenu();onOpenMemes(this)">memes</a>
+        <a href="#" class="about-anchorM" onclick="closeMenu();onOpenView(this)">about</a>
     </div>
     <!-- SCREEN DESIGN -->
     <div class="main-screen" onclick="closeMenu()"></div>
 
     <!-- Data-List FOR -Fonts -->
-    <datalist id="fonts" >
+    <datalist id="fonts">
         <option value="IMPACT">
         <option value="Arial">
         <option value="cursive">
@@ -43,9 +43,9 @@
 
 
         <div class="header-anchors capitalize">
-            <a href="#" class="gallery-anchor border-rad-30" onclick="setGallery(this)">gallery</a>
-            <a href="#" class="memes-anchor border-rad-30">memes</a>
-            <a href="#" class="about-anchor color-white">about</a>
+            <a href="#" class="gallery-anchor border-rad-30" onclick="onSetGallery(this)">Gallery</a>
+            <a href="#" class="memes-anchor border-rad-30" onclick="onOpenMemes(this)">Memes</a>
+            <a href="#" class="about-anchor color-white" onclick="onOpenView(this)">About</a>
         </div>
         <div class="hamburger center-items" onclick="addMenu()"><i class="material-icons">menu</i></div>
     </header>
@@ -71,7 +71,7 @@
     <section class="editor-contaioner" style="display: none;">
         <!-- CANVAS -->
         <div class="edit-area">
-            <canvas width=500 height=530 onclick="onCanvasClick(event)"></canvas>
+            <canvas class="main-canvas" width=500 height=530 onclick="onCanvasClick(event)"></canvas>
         </div>
         <!-- CONTROL AREA -->
         <div class="control-area">
@@ -96,10 +96,12 @@
 
                     <button class="stroke-color"><i class="material-icons">text_format</i> <input type="color"
                             class="input-stroke" onchange="onStrokeColor(this.value)"></button>
+                            
                     <button class="color"><i class="material-icons">palette</i><input type="color" class="input-color"
                             onchange="onSetColor(this.value)"></button>
-                    <input list="fonts" id="fonts" type="text" class="font-style" placeholder="impact" 
-                    onchange="onSetFont(this.value)" >
+                    <input list="fonts" id="fonts" type="text" class="font-style pallet" placeholder="impact"
+                        onchange="onSetFont(this.value)">
+                        
                     <button class="align-left" onclick="onAlignText('left')"><i
                             class="material-icons">format_align_left</i></button>
                     <button class="align-center" onclick="onAlignText('center')"><i
@@ -109,22 +111,44 @@
 
                 </div>
                 <div class="efects-container"></div>
+
                 <div class="save-buttons">
-                    <button class="share-btn"><i class="material-icons">share</i>share</button>
-                    <a href="#"><button class="download-btn"><i
-                                class="material-icons">file_download</i>download</button></a>
+                    <button class="share-btn" onclick="onShareMeme()"><i class="material-icons">share</i>share</button>
+                    <button class="share-btn" onclick="onSaveMeme()"><i class="material-icons">save</i>save</button>
+                    <a href="#" download="" onclick="downloadMeme(this)">
+                        <button class="download-btn"><i class="material-icons">file_download</i>download</button>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
+
+
+    <!-- MEME PAGE -->
+    <div class="memes-container" style="display: none;">
+
+        <!-- SORT SECTION -->
+        <section class="memes-filter flex">
+            <div class="memes-header">Lorem ipsum dolor sit amet, consectetur
+                adipisicing elit. Illo, porro!</div>
+            <button class=" memes-btn color-white capitalize border-rad-30 border-none">more</button>
+        </section>
+
+        <!-- MEMES CONTENT -->
+        <section class="memes-imgs flex flex-wrap space-around">
+        </section>
+    </div>
     </main>
 
+    <script src="JS/service/memePageService.js"></script>
+    <script src="JS/service/filesService.js"></script>
     <script src="JS/service/storageService.js"></script>
     <script src="JS/service/imgsService.js"></script>
     <script src="JS/service/lineService.js"></script>
     <script src="JS/service/memeService.js"></script>
 
+    <script src="js/controller/memesPageController.js"></script>
     <script src="JS/controller/navController.js"></script>
     <script src="JS/controller/main.js"></script>
     <script src="JS/controller/memeContoller.js"></script>

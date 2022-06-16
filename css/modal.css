@@ -48,9 +48,6 @@
     font-size: 1.3rem;
 }
 
-a:hover{
-    background-color: rgba(218, 210, 210, 0.274);
-}
 
 .main-screen {
     position: fixed;

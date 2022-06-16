@@ -14,7 +14,7 @@ function getCurrWidth() {
 }
 
 function addNewLine() {
-    const canvasHeight = document.querySelector('canvas').height
+    const canvasHeight = document.querySelector('.main-canvas').height
 
     if (gMeme.lines.length === 0) {
         var newLine = createLine('left', 10, 50)

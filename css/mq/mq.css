@@ -87,3 +87,42 @@
         margin-inline-start: 4rem;
     }
 }
+
+@media screen and (max-width: 1070px) {
+
+
+    .editor-contaioner {
+
+        justify-content: center;
+        margin: auto
+    }
+
+    .main-canvas {
+        max-width: 400px;
+        margin: auto;
+        justify-self: center;
+    }
+
+    .control-area {
+        max-width: 500px;
+        margin: auto;
+    }
+
+}
+
+@media screen and (max-width: 890px) {
+    .editor-contaioner {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .control-area {
+        max-width: 500px;
+        margin: 10px;
+    }
+
+    .control-area {
+        max-width: 500px;
+       
+    }
+}

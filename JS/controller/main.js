@@ -15,14 +15,14 @@ function onInit() {
     gElGallery = document.querySelector('.gallery-container')
     gElEditor = document.querySelector('.editor-contaioner')
 
-    gElCanvas = document.querySelector('canvas')
+    gElCanvas = document.querySelector('.main-canvas')
     gCtx = gElCanvas.getContext('2d')
-
 
 
     renderImgs()
     renderCanvas()
-
+    renderMemes()
+    renderFilterWords()
 }
 
 // Response to change txt in input
@@ -59,6 +59,7 @@ function onSetBottomLine() {
 function onSetMeme(id) {
     gElGallery.style.display = 'none'
     gElEditor.style.display = 'flex'
+    document.querySelector('.memes-container').style.display = 'none'
 
     setImg(id)
     renderCanvas()
@@ -132,13 +133,43 @@ function onSetFont(font) {
     renderCanvas()
 }
 
+function onShareMeme() {
+    shareMeme()
+}
 
-function setGallery(elBtn) {
+
+function onOpenMemes(elBtn) {
+
+    toggleActive(elBtn)
+    openMemes()
+}
+
+function onOpenView(elBtn) {
+    toggleActive(elBtn)
+    console.log('view');
+}
+
+function onSetGallery(elBtn) {
+    toggleActive(elBtn)
     const elGallery = document.querySelector('.gallery-container')
     if (elGallery.style.display === 'block') return
 
     elGallery.style.display = 'block'
     document.querySelector('.editor-contaioner').style.display = 'none'
-    console.log(elBtn);
-    elBtn.classList.toggle('active')
+    document.querySelector('.memes-container').style.display = 'none'
+}
+
+function renderFilterWords() {
+    const keys = getKeysToFilter()
+    var strHTML = ''
+    keys.forEach(key => {
+        strHTML+= `<button onclick="onSetFilter('${key}')" data-key="${key}" 
+        style="font-size:${getCurrScore(key) + 20}px;">${key}</button>`
+    })
+    document.querySelector('.filter-words').innerHTML = strHTML
+}
+
+function onSetFilter(key){
+    setFilter(key)
+    renderImgs()
 }
