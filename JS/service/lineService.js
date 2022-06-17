@@ -63,9 +63,11 @@ function switchLines() {
     const linesLength = getMeme().lines.length
     const selectedLineIdx = getCurrLineIdx()
 
+    // checking if thre is only one line
+    if (linesLength === 1) return
+
     //Checking if I'm on last line
     if (selectedLineIdx + 1 === linesLength) setCurrLine(0)
-
     else setCurrLine(selectedLineIdx + 1)
 }
 
@@ -81,7 +83,7 @@ function deleteCurrLine() {
     setCurrLine(lines.length - 1)
 }
 
-/**** Checks if there is a line accord click on canvas ****/ 
+/**** Checks if there is a line accord click on canvas ****/
 function checkLine(offsetX, offsetY) {
     const lineIdx = gMeme.lines.findIndex(line => {
         return (
@@ -96,9 +98,9 @@ function checkLine(offsetX, offsetY) {
     return true
 }
 
-/**** set text on line ****/ 
+/**** set text on line ****/
 function setTextOnLine(txt) {
     gCurrLine.txt = txt
-    
+
     gCurrLine.width = getTextWidth(txt)
 }
