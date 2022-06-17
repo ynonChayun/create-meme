@@ -5,7 +5,7 @@
 
 .gallery-container {
     background-color: #383B42;
-    ;
+    
 
     border-radius: 10px;
     margin-bottom: 1%;
@@ -24,6 +24,7 @@
     flex-grow: 5;
 
     padding: 5px 10px 5px 2.5rem;
+    height: 50px;
 }
 
 .filter-txt:focus-visible {
@@ -36,6 +37,7 @@
 }
 
 .gallery-filter .filter-words {
+
     flex-grow: 5;
     background-color: #686464;
     padding: .3em 1em .3em 1em;
@@ -47,6 +49,7 @@
     flex-grow: 1;
     font-size: 1rem;
     padding: 6px 16px;
+    height: 40px;
 }
 
 .none-active-more {
