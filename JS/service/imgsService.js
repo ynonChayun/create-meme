@@ -9,7 +9,7 @@ var gImgs = [
     {
         id: 2,
         url: `meme-imgs (square)/img-2.jpg`,
-        keywords: ['animals', 'emotion','wild'],
+        keywords: ['animals', 'emotion', 'wild'],
     },
     {
         id: 3,
@@ -19,7 +19,7 @@ var gImgs = [
     {
         id: 4,
         url: `meme-imgs (square)/img-4.jpg`,
-        keywords: ['animals','wild']
+        keywords: ['animals', 'wild']
     },
     {
         id: 5,
@@ -54,7 +54,7 @@ var gImgs = [
     {
         id: 11,
         url: `meme-imgs (square)/img-11.jpg`,
-        keywords: ['emotion', 'tv-shows','sport']
+        keywords: ['emotion', 'tv-shows', 'sport']
     },
     {
         id: 12,
@@ -69,7 +69,7 @@ var gImgs = [
     {
         id: 14,
         url: `meme-imgs (square)/img-14.jpg`,
-        keywords: ['scarry','emotion','movies']
+        keywords: ['scarry', 'emotion', 'movies']
     },
     {
         id: 15,
@@ -95,9 +95,22 @@ var gImgs = [
 
 
 function getImgs() {
+    //For not making a shallow copy
     var imgs = [...gImgs]
+    console.log(gFilter);
+
+    if (gFilter === 'any') {
+        imgs = imgs.filter(img => img.keywords.filter(key => key.includes(gFilterByText)))
+        if(gFilterByText){
+              imgs = imgs.filter(img => img.keywords.includes(gFilterByText))
+        }
+        return imgs
+    }
     if (gFilter) {
         imgs = imgs.filter(img => img.keywords.includes(gFilter))
+        if(gFilterByText){
+            imgs = imgs.filter(img => img.keywords.includes(gFilterByText))
+        }
     }
     return imgs
 }
