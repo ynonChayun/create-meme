@@ -18,7 +18,6 @@ function onInit() {
     gElCanvas = document.querySelector('.main-canvas')
     gCtx = gElCanvas.getContext('2d')
 
-
     renderImgs()
     renderCanvas()
     renderMemes()
@@ -27,7 +26,7 @@ function onInit() {
 
 // Response to change txt in input
 function onChangeContent(lineContent) {
-    setLine(lineContent)
+    setTextOnLine(lineContent)
     renderCanvas()
 }
 
@@ -43,7 +42,7 @@ function onChangeTextSize(mode) {
 function onAlignText(pos) {
     if (isEmpty()) return
 
-    setAlignText(pos)
+    setAlignText(pos, gElCanvas.width)
     renderCanvas()
 }
 
@@ -69,7 +68,7 @@ function onSetMeme(id) {
 function onAddLine() {
     setIsEmpty(false)
 
-    addNewLine()
+    addNewLine(gElCanvas.height)
 
     renderCanvas()
     clearTxtInput()
@@ -159,17 +158,22 @@ function onSetGallery(elBtn) {
     document.querySelector('.memes-container').style.display = 'none'
 }
 
-function renderFilterWords() {
-    const keys = getKeysToFilter()
-    var strHTML = ''
-    keys.forEach(key => {
-        strHTML+= `<button onclick="onSetFilter('${key}')" data-key="${key}" 
-        style="font-size:${getCurrScore(key) + 20}px;">${key}</button>`
-    })
-    document.querySelector('.filter-words').innerHTML = strHTML
+function onSaveMeme() {
+    saveMemesToStorage(gElCanvas.toDataURL())
+    renderMemes()
 }
 
-function onSetFilter(key){
+function onMoreKeys(elBtn) {
+    console.log(elBtn);
+    elBtn.classList.toggle('none-active-more')
+    elBtn.classList.toggle('active-more')
+    
+    setMoreKeys()
+    renderFilterWords()
+}
+
+function onSetFilter(key) {
     setFilter(key)
+    renderFilterWords()
     renderImgs()
 }

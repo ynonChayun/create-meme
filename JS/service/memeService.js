@@ -1,83 +1,17 @@
 'use strict'
 
+//checl if the meme is empty
 var gIsEmpty = false
-var gImgs  
-
-
 
 var gMeme = createMeme()
 var gCurrLine = gMeme.lines[gMeme.selectedLineIdx]
 
-var gMemes = []
-
-function getMemes(){
-    gMemes = loadMemesFromStorage()
-
-    if(!gMemes || !gMemes.length){
-        gMemes = []
-    }else{
-        return gMemes
-    }
-}
-
+/**** return meme ****/ 
 function getMeme() {
     return gMeme
 }
 
-function setSizeFont(mode) {
-    if (mode === 'grow' && gCurrLine.size === 100
-        || mode === 'shrink' && gCurrLine.size === 26) return
-
-    gCurrLine.size += mode === 'shrink' ? -2 : 2
-
-    gCurrLine.height = gCurrLine.size / 1.6666
-    gCurrLine.width = gCtx.measureText(gCurrLine.txt).width + 10
-
-}
-
-function setBottomLine() {
-    gCurrLine.haveBottomLine = true
-}
-
-function setAlignText(pos) {
-    gCurrLine.align = pos
-
-    switch (pos) {
-        case 'left':
-            gCurrLine.startX = 10
-            gCtx.textAlign = 'start'
-            break;
-        case 'center':
-            gCurrLine.startX = gElCanvas.width / 2
-            gCtx.textAlign = 'center'
-            break;
-        case 'right':
-            gCurrLine.startX = gElCanvas.width - 10
-            gCtx.textAlign = 'end'
-            break;
-    }
-
-}
-
-function setLine(txt) {
-    gCurrLine.txt = txt
-
-    switch (gCurrLine.align) {
-        case 'left':
-            break;
-        case 'center':
-            gCurrLine.startX -= (gCurrLine.width - gCtx.measureText(txt).width) / 2
-
-            break;
-        case 'right':
-            gCurrLine.startX -= gCurrLine.width - gCtx.measureText(txt).width
-            break;
-    }
-
-    gCurrLine.width = gCtx.measureText(txt).width
-
-}
-
+/**** create meme ****/ 
 function createMeme() {
     const bottomCanvas = document.querySelector('.main-canvas').height - 50
     return {
@@ -90,21 +24,67 @@ function createMeme() {
     }
 }
 
-
-// storage helper functions
-function _saveMemeToStorage() {
-    saveToStorage(key = 'meme', value = gMeme)
+/**** set img on canvas ****/ 
+function setImg(id) {
+    gMeme.selectedImgId = id
 }
 
-function _loadMemefromStorage() {
-    loadFromStorage(key = 'meme')
+/**** Updates the size according clickIng grow/shrink btn ****/ 
+function setSizeFont(mode) {
+    if (mode === 'grow' && gCurrLine.size === 100
+        || mode === 'shrink' && gCurrLine.size === 26) return
+
+    gCurrLine.size += mode === 'shrink' ? -2 : 2
+
+    //calculation the height according the font-size
+    gCurrLine.height = gCurrLine.size / 1.6666
+
+    // //calculation the font-width with padding
+    gCurrLine.width = gCtx.measureText(gCurrLine.txt).width + 10
+}
+
+/**** Updates the align according clickIng align btns ****/ 
+function setAlignText(pos,canvasWitdh) {
+    gCurrLine.align = pos
+
+    switch (pos) {
+        case 'left':
+            gCurrLine.startX = 10
+            break;
+        case 'center':
+            gCurrLine.startX = canvasWitdh / 2
+            break;
+        case 'right':
+            gCurrLine.startX = canvasWitdh - 10
+            // gCtx.textAlign = 'end'
+            break;
+    }
+}
+
+
+/**** Helpers functions ****/ 
+function getCurrLine() {
+    return gCurrLine
+}
+
+function setCurrLine(index) {
+    gMeme.selectedLineIdx = index
+    gCurrLine = gMeme.lines[index]
+}
+
+function getCurrLineIdx() {
+    return gMeme.selectedLineIdx
+}
+
+function getCurrWidth() {
+    return gCurrLine.width
 }
 
 function isEmpty() {
     return gIsEmpty
 }
+
 function setIsEmpty(bool) {
     gIsEmpty = bool
 }
-
 

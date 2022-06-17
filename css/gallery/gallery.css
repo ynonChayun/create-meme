@@ -4,15 +4,16 @@
 }
 
 .gallery-container {
-    background-color:#383B42;;
-    
+    background-color: #383B42;
+    ;
+
     border-radius: 10px;
     margin-bottom: 1%;
 }
 
 .gallery-filter {
     font-size: 1.3rem;
-    
+
     gap: 1%;
     padding: 1rem 1.5rem 1rem 1.5rem;
 }
@@ -21,15 +22,16 @@
     background-color: #22252C;
 
     flex-grow: 5;
- 
+
     padding: 5px 10px 5px 2.5rem;
 }
 
-.filter-txt:focus-visible{
+.filter-txt:focus-visible {
     outline: none;
 }
 
-.filter-txt::placeholder , .filter-txt{
+.filter-txt::placeholder,
+.filter-txt {
     font-size: 1.3rem;
 }
 
@@ -42,12 +44,22 @@
 .gallery-filter .filter-more {
     font-family: poppins-medium;
 
+    flex-grow: 1;
+    font-size: 1rem;
+    padding: 6px 16px;
+}
+
+.none-active-more {
     background: rgb(12, 152, 185);
     background: linear-gradient(90deg, rgba(12, 152, 185, 1) 0%, rgba(51, 190, 109, 1) 100%);
+    color: white;
+}
 
-    flex-grow: 1;
-    font-size: 1rem; 
-    padding: 6px 16px;
+.active-more {
+    color: #21AC91;
+    background: rgb(243, 239, 239);
+    background: linear-gradient(90deg, rgb(253, 252, 252) 100%, rgba(255, 255, 255, 0.14609593837535018) 100%);
+
 }
 
 .gallery-imgs {
@@ -61,7 +73,7 @@
     margin-bottom: 1rem;
 }
 
-.filter-words button{
+.filter-words button {
     background-color: transparent;
     border: none;
     font-size: 1rem;

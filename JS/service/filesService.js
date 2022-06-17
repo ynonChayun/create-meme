@@ -20,7 +20,6 @@ function shareMeme() {
     //Send the image to the server
     doUploadImg(imgDataUrl, onSuccess);
 }
-
 function doUploadImg(imgDataUrl, onSuccess) {
     //Pack the image for delivery
     const formData = new FormData();

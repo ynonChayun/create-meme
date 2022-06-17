@@ -17,3 +17,9 @@ function toggleActive(elBtn) {
     console.log(elBtn);
     elBtn.classList.add('active')
 }
+
+function openMemes(){
+    document.querySelector('.gallery-container').style.display = 'none'
+    document.querySelector('.editor-contaioner').style.display = 'none'
+    document.querySelector('.memes-container').style.display = 'block'
+}

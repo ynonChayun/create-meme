@@ -46,25 +46,3 @@ function renderBackground(x, y, width, height) {
     gCtx.fill()
 }
 
-
-   // const lines = []
-
-    // if(gCtx.measureText(txt).width + x >= gElCanvas.width - 40){
-    //     lines.push()
-    // }
-
-
-
-//function draw bottom line
-    
-// if (line.haveBottomLine) {
-//     renderBaseLine(x, y + 6, width)
-// }
-
-// function renderBaseLine(x, y, width) {
-//     gCtx.beginPath();
-//     gCtx.strokeStyle = "BLACK";
-//     gCtx.moveTo(x, y);
-//     gCtx.lineTo(x + width, y);
-//     gCtx.stroke()
-// }
