@@ -91,11 +91,12 @@ function checkLine(offsetX, offsetY) {
             offsetY > line.startY - line.height && offsetY < line.startY + 5
         )
     })
-
     if (lineIdx !== -1 && lineIdx !== undefined) {
+
         setCurrLine(lineIdx)
+        return true
     }
-    return true
+    
 }
 
 /**** set text on line ****/
