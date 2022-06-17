@@ -17,7 +17,7 @@ function onInit() {
 
     gElCanvas = document.querySelector('.main-canvas')
     gCtx = gElCanvas.getContext('2d')
-    
+    rendertickers()
     setListeners()
     renderImgs()
     renderCanvas()

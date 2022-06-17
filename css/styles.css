@@ -22,4 +22,6 @@
 @import '../css/modal.css';
 
 /* MEMES */
-@import '../css/memes-page.css'
+@import '../css/memes-page.css';
+
+@import '../css/stickers.css'

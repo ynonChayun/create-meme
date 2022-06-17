@@ -50,14 +50,15 @@
     </header>
 
     <!-- GALLRY -->
-    <div class="gallery-container" style="display: block;">
+    <div class="gallery-container" style="display: none;">
 
         <!-- FILTER SECTION -->
         <section class="gallery-filter flex">
             <input type="text" class="filter-txt border-rad-30 border-none" placeholder="Search">
             <div class="filter-words color-white border-rad-30 capitalize">Lorem ipsum dolor sit amet, consectetur
                 adipisicing elit. Illo, porro!</div>
-            <button class="filter-more color-white capitalize border-rad-30 border-none none-active-more" onclick="onMoreKeys(this)">more</button>
+            <button class="filter-more color-white capitalize border-rad-30 border-none none-active-more"
+                onclick="onMoreKeys(this)">more</button>
         </section>
 
         <!-- GELLERY CONTENT -->
@@ -67,7 +68,7 @@
 
 
     <!-- EDITOR  -->
-    <section class="editor-contaioner" style="display: none;">
+    <section class="editor-contaioner" style="display: flex;">
         <!-- CANVAS -->
         <div class="edit-area">
             <canvas class="main-canvas" width=500 height=530 onclick="onCanvasClick(event)"></canvas>
@@ -109,7 +110,18 @@
                             class="material-icons">format_align_right</i></button>
 
                 </div>
-                <div class="efects-container"></div>
+                <div class="stickers-container">
+                    <!-- <span class="arrow-left">⪻</span>
+                    <div class="stickers-content">
+                        <img src="./imgs/stickers/6.png" alt="">
+                        <img src="./imgs/stickers/13.png" alt="">
+                        <img src="./imgs/stickers/2.png" alt="">
+                        <img src="./imgs/stickers/10.png" alt="">
+                        <img src="./imgs/stickers/11.png" alt="">
+        
+                    </div>
+                    <span class="arrow-right" onclick="movePage('+')">⪼</span> -->
+                </div>
 
                 <div class="save-buttons">
                     <button class="share-btn" onclick="onShareMeme()"><i class="material-icons">share</i>share</button>
@@ -149,8 +161,10 @@
     <script src="JS/service/imgsService.js"></script>
     <script src="JS/service/lineService.js"></script>
     <script src="JS/service/memeService.js"></script>
+    <script src="JS/service/stickersService.js"></script>
 
     <script src="js/controller/listeners.js"></script>
+    <script src="js/controller/stickersConroller.js"></script>
     <script src="js/controller/imgsController.js"></script>
     <script src="js/controller/filterController.js"></script>
     <script src="js/controller/memesPageController.js"></script>

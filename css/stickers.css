@@ -1,0 +1,20 @@
+.stickers-container img {
+    height: 70px;
+}
+
+.stickers-container {
+    padding: 10px;
+    display: flex;
+    gap: 4%;
+}
+
+.stickers-content {
+    flex-grow: 1;
+    margin-left: 2%;
+}
+
+.stickers-container span {
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+}
