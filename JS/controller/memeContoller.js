@@ -9,9 +9,10 @@ function clearCanvas() {
 function renderCanvas() {
     clearCanvas()
     renderImg()
-
+    drawStickers()
     renderLines()
 }
+
 
 //Clear the text input while adding a line
 function clearTxtInput() {
@@ -24,6 +25,6 @@ function renderColors() {
     document.querySelector('.input-stroke').value = getCurrLine().stroke
 }
 
-function renderFontInput(){
+function renderFontInput() {
     document.querySelector('.font-style').value = getCurrLine().font
 }

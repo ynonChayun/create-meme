@@ -1,3 +1,14 @@
+@media screen and (max-width: 563px) {
+    .gallery-filter {
+        height: 200px;
+    }
+}
+@media screen and (max-width: 469px) {
+    .gallery-filter {
+        height: 240px;
+    }
+}
+
 @media screen and (max-width: 760px) {
     .gallery-container .gallery-imgs {
         gap: 20px;
@@ -12,7 +23,7 @@
 
     .gallery-filter {
         display: grid;
-        height: 140px;
+        /* height: 140px; */
         grid-template-columns: repeat(6, 1fr);
         grid-template-rows: 70px 55px;
         /* align-content: center; */

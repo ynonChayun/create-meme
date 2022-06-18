@@ -17,6 +17,7 @@ function onInit() {
 
     gElCanvas = document.querySelector('.main-canvas')
     gCtx = gElCanvas.getContext('2d')
+
     rendertickers()
     setListeners()
     renderImgs()
@@ -27,13 +28,14 @@ function onInit() {
 
 // Response to change txt in input
 function onChangeContent(lineContent) {
+    if (isEmpty() || getCurrLine().isSticker) return
     setTextOnLine(lineContent)
     renderCanvas()
 }
 
 //Response to click buttons grow/shrink  font size
 function onChangeTextSize(mode) {
-    if (isEmpty()) return
+    if (isEmpty() || getCurrLine().isSticker) return
 
     setSizeFont(mode)
     renderCanvas()
@@ -44,14 +46,6 @@ function onAlignText(pos) {
     if (isEmpty()) return
 
     setAlignText(pos, gElCanvas.width)
-    renderCanvas()
-}
-
-//Response to click button baseLine - bottom
-function onSetBottomLine() {
-    if (isEmpty()) return
-
-    setBottomLine()
     renderCanvas()
 }
 
@@ -78,7 +72,8 @@ function onAddLine() {
 
 //Response to click on color input
 function onSetColor(color) {
-    if (isEmpty()) return
+    console.log(getCurrLine());
+    if (isEmpty() || getCurrLine().isSticker) return
 
     setColor(color)
     renderCanvas()
@@ -94,9 +89,10 @@ function onMoveLine(mode) {
 function onCanvasClick({ offsetX, offsetY }) {
     if (isEmpty()) return
 
-    if (checkLine(offsetX, offsetY)) {
+    if (checkLine(offsetX, offsetY) || checkSticker(offsetX, offsetY)) {
         movedLine()
     }
+
 }
 
 function onSwitchLines() {
@@ -116,19 +112,23 @@ function onDeleteLine() {
 function movedLine() {
 
     renderCanvas()
-    renderFontInput()
-    clearTxtInput()
-    renderColors()
+    if (!getCurrLine().isSticker) {
+        renderFontInput()
+        clearTxtInput()
+        renderColors()
+    }
 }
 
 
 function onStrokeColor(strokeColor) {
+    
+    if (isEmpty() || getCurrLine().isSticker) return
     setStrokeColor(strokeColor)
     renderCanvas()
 }
 
-
 function onSetFont(font) {
+    if (isEmpty() || getCurrLine().isSticker) return
     setFont(font)
     renderCanvas()
 }
@@ -156,7 +156,6 @@ function onSaveMeme() {
 }
 
 function onMoreKeys(elBtn) {
-    console.log(elBtn);
     elBtn.classList.toggle('none-active-more')
     elBtn.classList.toggle('active-more')
 
@@ -167,5 +166,10 @@ function onMoreKeys(elBtn) {
 function onSetFilter(key) {
     setFilter(key)
     renderFilterWords()
+    renderImgs()
+}
+
+function onInputFilter(filterByText){
+    setFilterByText(filterByText)
     renderImgs()
 }

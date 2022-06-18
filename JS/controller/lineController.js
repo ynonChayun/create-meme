@@ -4,8 +4,11 @@ function renderLines() {
     const meme = getMeme()
 
     meme.lines.forEach((line, index) => {
-        if (index === meme.selectedLineIdx) renderLine(line, true)
-        else renderLine(line, false)
+        if (!line.isSticker) {
+            if (index === meme.selectedLineIdx) renderLine(line, true)
+            else renderLine(line, false)
+        }
+
     })
 }
 
@@ -21,7 +24,7 @@ function renderLine(line, isSelected) {
 
     const width = line.width
     const height = line.height
-   
+
     gCtx.fillText(txt, x, y);
     gCtx.strokeText(txt, x, y);
     if (isSelected) {
@@ -31,7 +34,7 @@ function renderLine(line, isSelected) {
 
 //render the background hover text
 function renderBackground(x, y, width, height) {
-    
+
     const padd = 12
     gCtx.beginPath();
     gCtx.strokeStyle = "BLACK";

@@ -30,7 +30,8 @@ function createLine(align, startX, startY) {
         startY,
         width: 350,
         height: 40,
-        font: 'IMPACT'
+        font: 'IMPACT',
+        isSticker: false
     }
 }
 
@@ -85,18 +86,19 @@ function deleteCurrLine() {
 
 /**** Checks if there is a line accord click on canvas ****/
 function checkLine(offsetX, offsetY) {
+
     const lineIdx = gMeme.lines.findIndex(line => {
         return (
             offsetX > line.startX && offsetX < line.startX + line.width &&
-            offsetY > line.startY - line.height && offsetY < line.startY + 5
+            offsetY > line.startY - line.height && offsetY < line.startY + 5 &&!line.isSticker
+
         )
     })
     if (lineIdx !== -1 && lineIdx !== undefined) {
-
         setCurrLine(lineIdx)
         return true
     }
-    
+
 }
 
 /**** set text on line ****/

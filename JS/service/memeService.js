@@ -6,12 +6,12 @@ var gIsEmpty = false
 var gMeme = createMeme()
 var gCurrLine = gMeme.lines[gMeme.selectedLineIdx]
 
-/**** return meme ****/ 
+/**** return meme ****/
 function getMeme() {
     return gMeme
 }
 
-/**** create meme ****/ 
+/**** create meme ****/
 function createMeme() {
     const bottomCanvas = document.querySelector('.main-canvas').height - 50
     return {
@@ -20,16 +20,17 @@ function createMeme() {
         lines: [
             createLine('left', 10, 70),
             createLine('left', 10, bottomCanvas)
-        ]
+        ],
+
     }
 }
 
-/**** set img on canvas ****/ 
+/**** set img on canvas ****/
 function setImg(id) {
     gMeme.selectedImgId = id
 }
 
-/**** Updates the size according clickIng grow/shrink btn ****/ 
+/**** Updates the size according clickIng grow/shrink btn ****/
 function setSizeFont(mode) {
     if (mode === 'grow' && gCurrLine.size === 100
         || mode === 'shrink' && gCurrLine.size === 26) return
@@ -43,26 +44,26 @@ function setSizeFont(mode) {
     gCurrLine.width = gCtx.measureText(gCurrLine.txt).width + 10
 }
 
-/**** Updates the align according clickIng align btns ****/ 
-function setAlignText(pos,canvasWitdh) {
+/**** Updates the align according clickIng align btns ****/
+function setAlignText(pos, canvasWitdh) {
     gCurrLine.align = pos
-
+    const middleCanvas = canvasWitdh / 2
+    const isSticker = getCurrLine().isSticker
     switch (pos) {
         case 'left':
-            gCurrLine.startX = 10
+            gCurrLine.startX = isSticker ? -10 : 10
             break;
         case 'center':
-            gCurrLine.startX = canvasWitdh / 2
+            gCurrLine.startX = isSticker ? middleCanvas - 80 : middleCanvas
             break;
         case 'right':
-            gCurrLine.startX = canvasWitdh - 10
-            // gCtx.textAlign = 'end'
+            gCurrLine.startX = isSticker ? canvasWitdh - 150 :canvasWitdh - 10
             break;
     }
 }
 
 
-/**** Helpers functions ****/ 
+/**** Helpers functions ****/
 function getCurrLine() {
     return gCurrLine
 }
@@ -74,6 +75,10 @@ function setCurrLine(index) {
 
 function getCurrLineIdx() {
     return gMeme.selectedLineIdx
+}
+
+function getLengthLines() {
+    return gMeme.lines.length
 }
 
 function getCurrWidth() {

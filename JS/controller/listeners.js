@@ -23,7 +23,8 @@ function addTouchListeners() {
 function onDown(ev) {
 
     gElCanvas.style.cursor = 'grabbing'
-    if (checkLine(ev.offsetX, ev.offsetY)) {
+    if (checkLine(ev.offsetX, ev.offsetY) ||
+        checkSticker(ev.offsetX, ev.offsetY)) {
         gElCanvas.addEventListener('mousemove', onMove)
         gStartPos = getEvPos(ev)
     }

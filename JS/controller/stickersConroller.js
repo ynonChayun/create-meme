@@ -6,13 +6,29 @@ var gPageIdx = 0
 const PAGE_SIZE = 4
 
 
-function onSetSticker(src) {
-    drawSticker(src)
+function onSetSticker(elImg) {
+    setSticker(elImg)
+    
+    renderCanvas()
 }
 
-function drawSticker(elImg) {
-    gCtx.drawImage(elImg, 100, 100, 200, 200);
+function drawStickers() {
+    const lines = getMeme().lines
+    if (!lines.length) {
+        return
+    }
+
+    lines.forEach((line, index) => {
+        if (line.isSticker) {
+            gCtx.drawImage(line.elImg, line.startX, line.startY, line.width, line.height);
+            if (index === getCurrLineIdx()) {
+                renderBackground(line.startX, line.startY + line.height, line.width, line.height)
+            }
+        }
+    }
+    )
 }
+
 
 
 /**** paging ****/
