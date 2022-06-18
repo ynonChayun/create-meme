@@ -151,6 +151,7 @@ function onOpenView(elBtn) {
 
 
 function onSaveMeme() {
+    renderCanvasWitoutBackgrounds()
     saveMemesToStorage(gElCanvas.toDataURL())
     renderMemes()
 }

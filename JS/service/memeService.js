@@ -57,7 +57,7 @@ function setAlignText(pos, canvasWitdh) {
             gCurrLine.startX = isSticker ? middleCanvas - 80 : middleCanvas
             break;
         case 'right':
-            gCurrLine.startX = isSticker ? canvasWitdh - 150 :canvasWitdh - 10
+            gCurrLine.startX = isSticker ? canvasWitdh - 150 :canvasWitdh - gCurrLine.width
             break;
     }
 }

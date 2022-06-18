@@ -90,7 +90,7 @@ function checkLine(offsetX, offsetY) {
     const lineIdx = gMeme.lines.findIndex(line => {
         return (
             offsetX > line.startX && offsetX < line.startX + line.width &&
-            offsetY > line.startY - line.height && offsetY < line.startY + 5 &&!line.isSticker
+            offsetY > line.startY - line.height && offsetY < line.startY + 5 && !line.isSticker
 
         )
     })
@@ -104,6 +104,20 @@ function checkLine(offsetX, offsetY) {
 /**** set text on line ****/
 function setTextOnLine(txt) {
     gCurrLine.txt = txt
-
     gCurrLine.width = getTextWidth(txt)
+
+    if (getTextWidth(txt) + gCurrLine.startX >= gElCanvas.width - 10) {
+        console.log('end');
+        var words = txt.split(" ");
+        if (words.length === 1) {
+            addNewLine(gElCanvas.height)
+            clearTxtInput()
+        } else {
+            const lastWord = words[words.length - 1];
+            gCurrLine.txt = words.slice(0, words.length - 1).join(' ')
+            addNewLine(gElCanvas.height)
+            document.querySelector('.input-text-line').value = lastWord
+        }
+
+    }
 }
