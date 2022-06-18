@@ -155,6 +155,8 @@ function onSaveMeme() {
     renderCanvasWitoutBackgrounds()
     saveMemesToStorage(gElCanvas.toDataURL())
     renderMemes()
+    toggleActive(document.querySelector('.memes-anchor'))
+    openMemes()
 }
 
 function onMoreKeys(elBtn) {
