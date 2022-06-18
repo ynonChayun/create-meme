@@ -1,11 +1,11 @@
 'use strict'
 
-function renderLines() {
+function renderLines(withBackground = true) {
     const meme = getMeme()
 
     meme.lines.forEach((line, index) => {
         if (!line.isSticker) {
-            if (index === meme.selectedLineIdx) renderLine(line, true)
+            if (index === meme.selectedLineIdx && withBackground) renderLine(line, true)
             else renderLine(line, false)
         }
 

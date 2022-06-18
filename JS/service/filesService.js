@@ -2,6 +2,7 @@
 
 // download curr meme
 function downloadMeme(elLink) {
+    renderCanvasWitoutBackgrounds()
     const data = gElCanvas.toDataURL()
     elLink.href = data
     elLink.download = 'Your meme'
@@ -20,6 +21,7 @@ function shareMeme() {
     //Send the image to the server
     doUploadImg(imgDataUrl, onSuccess);
 }
+
 function doUploadImg(imgDataUrl, onSuccess) {
     //Pack the image for delivery
     const formData = new FormData();
@@ -31,7 +33,7 @@ function doUploadImg(imgDataUrl, onSuccess) {
     })   //Gets the result and extract the text/ url from it
         .then(res => res.text())
         .then((url) => {
-            console.log('Got back live url:', url);
+            
             //Pass the url we got to the callBack func onSuccess, that will create the link to facebook
             onSuccess(url)
         })

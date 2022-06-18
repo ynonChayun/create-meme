@@ -72,7 +72,7 @@ function onAddLine() {
 
 //Response to click on color input
 function onSetColor(color) {
-    console.log(getCurrLine());
+
     if (isEmpty() || getCurrLine().isSticker) return
 
     setColor(color)
@@ -134,6 +134,7 @@ function onSetFont(font) {
 }
 
 function onShareMeme() {
+    renderCanvasWitoutBackgrounds()
     shareMeme()
 }
 
@@ -146,7 +147,7 @@ function onOpenMemes(elBtn) {
 
 function onOpenView(elBtn) {
     toggleActive(elBtn)
-    console.log('view');
+ 
 }
 
 
@@ -173,4 +174,10 @@ function onSetFilter(key) {
 function onInputFilter(filterByText){
     setFilterByText(filterByText)
     renderImgs()
+}
+
+function renderCanvasWitoutBackgrounds(){
+    renderImg()
+    drawStickers(false)
+    renderLines(false)
 }

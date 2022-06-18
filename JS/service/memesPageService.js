@@ -11,8 +11,14 @@ function getMemes() {
 }
 
 function saveMemesToStorage(meme) {
-    gMemes.push(meme)
-   
+    if (!gMemes.length) {
+
+        gMemes.push({ id: 1, meme })
+    }
+    else {
+        const id = gMemes[gMemes.length - 1].id + 1
+        gMemes.push({ id, meme })
+    }
     saveToStorage(MEMES_KEY, gMemes)
 }
 

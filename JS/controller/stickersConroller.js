@@ -12,7 +12,7 @@ function onSetSticker(elImg) {
     renderCanvas()
 }
 
-function drawStickers() {
+function drawStickers(withBackground = true) {
     const lines = getMeme().lines
     if (!lines.length) {
         return
@@ -21,7 +21,7 @@ function drawStickers() {
     lines.forEach((line, index) => {
         if (line.isSticker) {
             gCtx.drawImage(line.elImg, line.startX, line.startY, line.width, line.height);
-            if (index === getCurrLineIdx()) {
+            if (index === getCurrLineIdx() && withBackground) {
                 renderBackground(line.startX, line.startY + line.height, line.width, line.height)
             }
         }
