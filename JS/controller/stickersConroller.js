@@ -42,6 +42,7 @@ function nextPage() {
 
 function prevPage() {
     if (gPageIdx === 0) return
+    gPageIdx--
     rendertickers()
 }
 

@@ -1,10 +1,10 @@
 'use strict'
 
-//checl if the meme is empty
-var gIsEmpty = false
+//check if the meme is empty
+let gIsEmpty = false
 
-var gMeme = createMeme()
-var gCurrLine = gMeme.lines[gMeme.selectedLineIdx]
+let gMeme = createMeme()
+let gCurrLine = gMeme.lines[gMeme.selectedLineIdx]
 
 /**** return meme ****/
 function getMeme() {

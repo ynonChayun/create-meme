@@ -21,16 +21,13 @@ function setFilterByText(txtFilter){
 
 function setFilter(filter) {
     gFilter = filter
-
-    for (var key in gKeywordSearchCountMap) {
-        if (key === filter) gKeywordSearchCountMap[key]++
-    }
+    if(gKeywordSearchCountMap[filter] === 15)return
+    
+    gKeywordSearchCountMap[filter]++
 }
 
 function getCurrScore(filter) {
-    for (var key in gKeywordSearchCountMap) {
-        if (key === filter) return gKeywordSearchCountMap[key]
-    }
+    return gKeywordSearchCountMap[filter]
 }
 
 function getKeysToFilter() {

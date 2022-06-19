@@ -91,7 +91,6 @@ function checkLine(offsetX, offsetY) {
         return (
             offsetX > line.startX && offsetX < line.startX + line.width &&
             offsetY > line.startY - line.height && offsetY < line.startY + 5 && !line.isSticker
-
         )
     })
     if (lineIdx !== -1 && lineIdx !== undefined) {
@@ -107,11 +106,11 @@ function setTextOnLine(txt) {
     gCurrLine.width = getTextWidth(txt)
 
     if (getTextWidth(txt) + gCurrLine.startX >= gElCanvas.width - 10) {
-        console.log('end');
+        
         var words = txt.split(" ");
         if (words.length === 1) {
             addNewLine(gElCanvas.height)
-            clearTxtInput()
+            changeTxtInput()
         } else {
             const lastWord = words[words.length - 1];
             gCurrLine.txt = words.slice(0, words.length - 1).join(' ')

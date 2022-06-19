@@ -1,14 +1,15 @@
 'use strict'
 
 //components
-var gElGallery
-var gElEditor
+let gElGallery
+let gElEditor
 
 //elements
-var gElCanvas
-var gCtx
+let gElCanvas
+let gCtx
 
-var imgs
+let imgs
+
 
 // Response to on load page
 function onInit() {
@@ -24,6 +25,114 @@ function onInit() {
     renderCanvas()
     renderMemes()
     renderFilterWords()
+}
+
+
+
+
+//Response to click on img in gallery
+function onSetMeme(id) {
+    gElGallery.style.display = 'none'
+    gElEditor.style.display = 'flex'
+    document.querySelector('.memes-container').style.display = 'none'
+
+    setImg(id)
+    renderCanvas()
+}
+
+function onCanvasClick({ offsetX, offsetY }) {
+    if (isEmpty()) return
+
+    if (checkLine(offsetX, offsetY) || checkSticker(offsetX, offsetY)) {
+        _movedLine()
+    }
+}
+
+
+
+/********* respones to FILTER memes **********/
+
+function onMoreKeys(elBtn) {
+    elBtn.classList.toggle('none-active-more')
+    elBtn.classList.toggle('active-more')
+
+    setMoreKeys()
+    renderFilterWords()
+}
+
+function onSetFilter(key) {
+    setFilter(key)
+    renderFilterWords()
+    renderImgs()
+}
+
+function onInputFilter(filterByText) {
+    setFilterByText(filterByText)
+    renderImgs()
+}
+
+
+
+
+
+/********* respones to EDITOR meme **********/
+
+// switch the focus
+function onSwitchLines() {
+    if (isEmpty()) return
+
+    switchLines()
+    _movedLine()
+}
+
+// Response to click on delete
+function onDeleteLine() {
+    if (isEmpty()) return
+
+    deleteCurrLine()
+    _movedLine()
+}
+
+// Response to click on font stroke
+function onStrokeColor(strokeColor) {
+    if (isEmpty() || getCurrLine().isSticker) return
+    setStrokeColor(strokeColor)
+    renderCanvas()
+}
+
+// Response to click on change font
+function onSetFont(font) {
+    if (isEmpty() || getCurrLine().isSticker) return
+    setFont(font)
+    renderCanvas()
+}
+
+//Response to click on add line button
+function onAddLine() {
+    setIsEmpty(false)
+
+    addNewLine(gElCanvas.height)
+
+    renderCanvas()
+    changeTxtInput()
+    renderColors()
+}
+
+//Response to click on color input
+function onSetColor(color) {
+
+    if (isEmpty() || getCurrLine().isSticker) return
+
+    setColor(color)
+    renderCanvas()
+}
+
+//Response to click buttons up/down  font size
+function onMoveLine(mode) {
+    if (isEmpty()) return
+
+    moveLine(mode)
+    renderCanvas()
 }
 
 // Response to change txt in input
@@ -49,137 +158,51 @@ function onAlignText(pos) {
     renderCanvas()
 }
 
-//Response to click on img in gallery
-function onSetMeme(id) {
-    gElGallery.style.display = 'none'
-    gElEditor.style.display = 'flex'
-    document.querySelector('.memes-container').style.display = 'none'
 
-    setImg(id)
-    renderCanvas()
+
+
+
+/********** respones to FILE actions share/save/download meme **********/
+
+// on download click
+function onDownloadMeme(elLink) {
+    _renderCanvasWitoutBackgrounds()
+   downloadMeme(gElCanvas.toDataURL(),elLink)
 }
 
-//Response to click on add line button
-function onAddLine() {
-    setIsEmpty(false)
-
-    addNewLine(gElCanvas.height)
-
-    renderCanvas()
-    clearTxtInput()
-    renderColors()
-}
-
-//Response to click on color input
-function onSetColor(color) {
-
-    if (isEmpty() || getCurrLine().isSticker) return
-
-    setColor(color)
-    renderCanvas()
-}
-
-function onMoveLine(mode) {
-    if (isEmpty()) return
-
-    moveLine(mode)
-    renderCanvas()
-}
-
-function onCanvasClick({ offsetX, offsetY }) {
-    if (isEmpty()) return
-
-    if (checkLine(offsetX, offsetY) || checkSticker(offsetX, offsetY)) {
-        movedLine()
-    }
-
-}
-
-function onSwitchLines() {
-    if (isEmpty()) return
-
-    switchLines()
-    movedLine()
-}
-
-function onDeleteLine() {
-    if (isEmpty()) return
-
-    deleteCurrLine()
-    movedLine()
-}
-
-function movedLine() {
-
-    renderCanvas()
-    if (!getCurrLine().isSticker) {
-        renderFontInput()
-        clearTxtInput()
-        renderColors()
-    }
-}
-
-
-function onStrokeColor(strokeColor) {
-    
-    if (isEmpty() || getCurrLine().isSticker) return
-    setStrokeColor(strokeColor)
-    renderCanvas()
-}
-
-function onSetFont(font) {
-    if (isEmpty() || getCurrLine().isSticker) return
-    setFont(font)
-    renderCanvas()
-}
-
+// on share to facebook click
 function onShareMeme() {
-    renderCanvasWitoutBackgrounds()
+    _renderCanvasWitoutBackgrounds()
     shareMeme()
 }
 
-
-function onOpenMemes(elBtn) {
-
-    toggleActive(elBtn)
-    openMemes()
-}
-
-function onOpenView(elBtn) {
-    toggleActive(elBtn)
- 
-}
-
-
+// on save to memes archive
 function onSaveMeme() {
-    renderCanvasWitoutBackgrounds()
-    saveMemesToStorage(gElCanvas.toDataURL())
-    renderMemes()
-    toggleActive(document.querySelector('.memes-anchor'))
-    openMemes()
+    _renderCanvasWitoutBackgrounds()
+    saveMeme(gElCanvas.toDataURL())
 }
 
-function onMoreKeys(elBtn) {
-    elBtn.classList.toggle('none-active-more')
-    elBtn.classList.toggle('active-more')
 
-    setMoreKeys()
-    renderFilterWords()
-}
 
-function onSetFilter(key) {
-    setFilter(key)
-    renderFilterWords()
-    renderImgs()
-}
 
-function onInputFilter(filterByText){
-    setFilterByText(filterByText)
-    renderImgs()
-}
 
-function renderCanvasWitoutBackgrounds(){
+/********** HELPER functions **********/
+
+function _renderCanvasWitoutBackgrounds() {
     renderImg()
     drawStickers(false)
     renderLines(false)
 }
+
+
+// Works when we need to switch a line
+function _movedLine() {
+
+    renderCanvas()
+    if (!getCurrLine().isSticker) {
+        renderFontInput()
+        changeTxtInput()
+        renderColors()
+    }
+}
+

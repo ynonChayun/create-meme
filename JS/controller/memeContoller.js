@@ -15,8 +15,8 @@ function renderCanvas() {
 
 
 //Clear the text input while adding a line
-function clearTxtInput() {
-    document.querySelector('.input-text-line').value = ''
+function changeTxtInput() {
+    document.querySelector('.input-text-line').value = getCurrLine().txt
 }
 
 //Renders the current color on color input

@@ -1,13 +1,5 @@
 'use strict'
 
-// download curr meme
-function downloadMeme(elLink) {
-    renderCanvasWitoutBackgrounds()
-    const data = gElCanvas.toDataURL()
-    elLink.href = data
-    elLink.download = 'Your meme'
-}
-
 // share to facebook
 function shareMeme() {
 
@@ -40,4 +32,18 @@ function doUploadImg(imgDataUrl, onSuccess) {
         .catch((err) => {
             console.error(err)
         })
+}
+
+// download meme
+function downloadMeme(canvasData,elLink){
+    elLink.href = canvasData
+    elLink.download = 'Your meme'
+}
+
+// save meme to memes archive and open the archive 
+function saveMeme(canvasData){
+    saveMemesToStorage(canvasData)
+    renderMemes()
+    toggleActive(document.querySelector('.memes-anchor'))
+    openMemes()
 }

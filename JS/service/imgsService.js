@@ -1,6 +1,6 @@
 'use strict'
 
-var gImgs = [
+let gImgs = [
     {
         id: 1,
         url: `meme-imgs (square)/img-1.jpg`,
@@ -96,8 +96,8 @@ var gImgs = [
 
 function getImgs() {
     //For not making a shallow copy
-    var imgs = [...gImgs]
-    console.log(gFilter);
+    let imgs = [...gImgs]
+    
 
     if (gFilter === 'any') {
         imgs = imgs.filter(img => img.keywords.filter(key => key.includes(gFilterByText)))
@@ -119,15 +119,3 @@ function getImg() {
     const memeImgId = getMeme().selectedImgId
     return gImgs.filter(img => img.id === memeImgId)[0]
 }
-
-// function createImgs() {
-//     const imgs = []
-//     for (var i = 1; i < 19; i++) {
-//         imgs.push({
-//             id: i,
-//             url: `meme-imgs (square)/img-${i}.jpg`,
-//             keywords: getKeysToImg()
-//         })
-//     }
-//     return imgs
-// }

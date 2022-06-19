@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- git push -u origin main -->
 
 <head>
     <meta charset="UTF-8">
@@ -19,14 +18,15 @@
     <!-- MENU MODAL -->
     <div class="modal">
         <p class="title-modal border-rad-30">MEME GENEARETE</p>
-        <a href="#" class="gallery-anchorM" onclick="closeMenu();onSetGallery(this)">gallery</a>
+        <a href="#" class="gallery-anchorM" onclick="closeMenu();onOpenGallery(this)">gallery</a>
         <a href="#" class="memes-anchorM" onclick="closeMenu();onOpenMemes(this)">memes</a>
         <a href="#" class="about-anchorM" onclick="closeMenu();onOpenView(this)">about</a>
     </div>
+
     <!-- SCREEN DESIGN -->
     <div class="main-screen" onclick="closeMenu()"></div>
 
-    <!-- Data-List FOR -Fonts -->
+    <!-- Data-List FOR FONTS -->
     <datalist id="fonts">
         <option value="IMPACT">
         <option value="Arial">
@@ -36,25 +36,44 @@
     </datalist>
 
 
+    <!-- Data-List FOR FILTER -->
+    <datalist id="fonts">
+        <option value="IMPACT">
+        <option value="Arial">
+        <option value="cursive">
+        <option value="Tahoma">
+        <option value="Georgia">
+    </datalist>
+
+
+
+
+
+
+
+
+
     <!-- HEADER -->
     <header class="header-gallery flex space-between border-rad-30">
         <div class="logo color-white uppercase">meme generate</div>
 
-
         <div class="header-anchors capitalize">
-            <a href="#" class="gallery-anchor border-rad-30" onclick="onSetGallery(this)">Gallery</a>
+            <a href="#" class="gallery-anchor border-rad-30" onclick="onOpenGallery(this)">Gallery</a>
             <a href="#" class="memes-anchor border-rad-30" onclick="onOpenMemes(this)">Memes</a>
             <a href="#" class="about-anchor color-white" onclick="onOpenView(this)">About</a>
         </div>
-        <div class="hamburger center-items" onclick="addMenu()"><i class="material-icons">menu</i></div>
+        <div class="hamburger center-items" onclick="onOpenMenu()"><i class="material-icons">menu</i></div>
     </header>
+
+
 
     <!-- GALLRY -->
     <div class="gallery-container" style="display: block;">
 
         <!-- FILTER SECTION -->
         <section class="gallery-filter flex">
-            <input type="text" class="filter-txt color-white border-rad-30 border-none" placeholder="Search" oninput="onInputFilter(this.value)">
+            <input type="text" class="filter-txt color-white border-rad-30 border-none" placeholder="Search"
+                oninput="onInputFilter(this.value)">
             <div class="filter-words color-white border-rad-30 capitalize">Lorem ipsum dolor sit amet, consectetur
                 adipisicing elit. Illo, porro!</div>
             <button class="filter-more color-white capitalize border-rad-30 border-none none-active-more"
@@ -116,7 +135,7 @@
                 <div class="save-buttons">
                     <button class="share-btn" onclick="onShareMeme()"><i class="material-icons">share</i>share</button>
                     <button class="share-btn" onclick="onSaveMeme()"><i class="material-icons">save</i>save</button>
-                    <a href="#" download="" onclick="downloadMeme(this)">
+                    <a href="#" download="" onclick="onDownloadMeme(this)">
                         <button class="download-btn"><i class="material-icons">file_download</i>download</button>
                     </a>
                 </div>
@@ -124,10 +143,13 @@
         </div>
     </section>
 
-    <!-- MEME PAGE -->
+
+
+
+    <!-- MEMES PAGE -->
     <div class="memes-container" style="display: none;">
 
-        <!-- SORT SECTION -->
+        <!-- FILTER SECTION -->
         <section class="memes-filter flex">
             <div class="memes-header">Lorem ipsum dolor sit amet, consectetur
                 adipisicing elit. Illo, porro!</div>
@@ -151,7 +173,7 @@
     <script src="JS/service/memeService.js"></script>
     <script src="JS/service/stickersService.js"></script>
 
-    <script src="js/controller/listeners.js"></script>
+    <script src="js/controller/events.js"></script>
     <script src="js/controller/stickersConroller.js"></script>
     <script src="js/controller/imgsController.js"></script>
     <script src="js/controller/filterController.js"></script>
