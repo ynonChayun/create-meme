@@ -49,6 +49,9 @@ function renderBackground(x, y, width, height) {
     gCtx.fillStyle = "#dbe0dd65";
     gCtx.fill()
 
+
+    console.log(x, y, width, height);
+    console.log(x + padd + width, y + padd);
     gCtx.beginPath()
     gCtx.arc(x + padd + width, y + padd, 7, 0, 2 * Math.PI);
     gCtx.stroke();

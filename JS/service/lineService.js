@@ -106,7 +106,7 @@ function setTextOnLine(txt) {
     gCurrLine.width = getTextWidth(txt)
 
     if (getTextWidth(txt) + gCurrLine.startX >= gElCanvas.width - 10) {
-        
+
         var words = txt.split(" ");
         if (words.length === 1) {
             addNewLine(gElCanvas.height)
@@ -121,4 +121,22 @@ function setTextOnLine(txt) {
         }
 
     }
+}
+
+
+function checkCircleSize(offsetX, offsetY) {
+console.log(offsetX, offsetY);
+    const lineIdx = gMeme.lines.findIndex(line => {
+        return (
+            offsetX > line.startX + line.width + 5 && offsetX < line.startX + line.width + 17 &&
+            offsetY > line.startY  + 5 && offsetY < line.startY  + 20 
+        )
+        
+    })
+    console.log(lineIdx);
+    if (lineIdx !== -1 && lineIdx !== undefined) {
+        return true
+    }
+
+
 }

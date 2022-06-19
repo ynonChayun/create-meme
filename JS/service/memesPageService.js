@@ -1,7 +1,7 @@
 'use strict'
 
 const MEMES_KEY = 'memes'
-var gMemes = []
+let gMemes = []
 
 function getMemes() {
     gMemes = _loadMemesFromStorage()
@@ -12,7 +12,6 @@ function getMemes() {
 
 function saveMemesToStorage(meme) {
     if (!gMemes.length) {
-
         gMemes.push({ id: 1, meme })
     }
     else {

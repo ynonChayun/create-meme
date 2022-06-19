@@ -31,14 +31,16 @@ function setImg(id) {
 }
 
 /**** Updates the size according clickIng grow/shrink btn ****/
-function setSizeFont(mode) {
-    if (mode === 'grow' && gCurrLine.size === 100
-        || mode === 'shrink' && gCurrLine.size === 26) return
+function setSizeFont(value) {
+    if (value > 0 && gCurrLine.size === 100
+        || value < 0 && gCurrLine.size === 26) return
 
-    gCurrLine.size += mode === 'shrink' ? -2 : 2
+    gCurrLine.size += value
 
     //calculation the height according the font-size
-    gCurrLine.height = gCurrLine.size / 1.6666
+    const metrics = gCtx.measureText(gCurrLine.txt);
+    const height = metrics.actualBoundingBoxAscent + metrics.actualBoundingBoxDescent;
+    gCurrLine.height = height
 
     // //calculation the font-width with padding
     gCurrLine.width = gCtx.measureText(gCurrLine.txt).width + 10
@@ -57,7 +59,7 @@ function setAlignText(pos, canvasWitdh) {
             gCurrLine.startX = isSticker ? middleCanvas - 80 : middleCanvas
             break;
         case 'right':
-            gCurrLine.startX = isSticker ? canvasWitdh - 150 :canvasWitdh - gCurrLine.width
+            gCurrLine.startX = isSticker ? canvasWitdh - 150 : canvasWitdh - gCurrLine.width
             break;
     }
 }

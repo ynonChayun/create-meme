@@ -62,3 +62,31 @@ function getEvPos(ev) {
     }
     return position
 }
+
+
+
+
+
+
+function setSizeByCircle(ev){
+    gElCanvas.style.cursor = 'grabbing'
+    gElCanvas.addEventListener('mouseup', stopChangeSize)
+    gElCanvas.addEventListener('mousemove', changeSizeByMove)
+    gStartPos = getEvPos(ev)
+}
+
+function stopChangeSize(){
+    gElCanvas.style.cursor = 'grab'
+    gElCanvas.removeEventListener("mousemove", changeSizeByMove);
+    gElCanvas.removeEventListener('mousedown', setSizeByCircle)
+}
+
+function changeSizeByMove(ev){
+    const currLine = getCurrLine()
+    const evPos = getEvPos(ev)
+
+    setSizeFont((evPos.x - gStartPos.x)/6)
+    gStartPos = getEvPos(ev)
+    renderCanvas()
+    
+}

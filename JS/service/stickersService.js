@@ -1,6 +1,6 @@
 'use strict'
 
-var gStickers
+let gStickers
 
 function setSticker(elImg) {
     const sticker = createSticker(elImg)

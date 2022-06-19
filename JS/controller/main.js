@@ -43,9 +43,15 @@ function onSetMeme(id) {
 function onCanvasClick({ offsetX, offsetY }) {
     if (isEmpty()) return
 
-    if (checkLine(offsetX, offsetY) || checkSticker(offsetX, offsetY)) {
+    if (checkCircleSize(offsetX, offsetY)) {
+        console.log('circle!!!!!!');
+        gElCanvas.addEventListener('mousedown', setSizeByCircle)
+    }
+
+    else if (checkLine(offsetX, offsetY) || checkSticker(offsetX, offsetY)) {
         _movedLine()
     }
+
 }
 
 
@@ -143,10 +149,10 @@ function onChangeContent(lineContent) {
 }
 
 //Response to click buttons grow/shrink  font size
-function onChangeTextSize(mode) {
+function onChangeTextSize(value) {
     if (isEmpty() || getCurrLine().isSticker) return
 
-    setSizeFont(mode)
+    setSizeFont(value)
     renderCanvas()
 }
 
@@ -167,7 +173,7 @@ function onAlignText(pos) {
 // on download click
 function onDownloadMeme(elLink) {
     _renderCanvasWitoutBackgrounds()
-   downloadMeme(gElCanvas.toDataURL(),elLink)
+    downloadMeme(gElCanvas.toDataURL(), elLink)
 }
 
 // on share to facebook click
