@@ -101,7 +101,6 @@ function getImgs() {
     if (gFilter) {
         if (gFilter !== 'any') imgs = imgs.filter(img => img.keywords.includes(gFilter))
         if (gFilterByText) {
-            console.log('bibi');
             imgs = imgs.filter(img => img.keywords.some(key => key.startsWith(gFilterByText)) )
         }
     }
