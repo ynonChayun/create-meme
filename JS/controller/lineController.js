@@ -46,7 +46,7 @@ function renderBackground(x, y, width, height) {
 
     gCtx.closePath()
     gCtx.stroke()
-    gCtx.fillStyle = "#dbe0dd65";
+    gCtx.fillStyle = "#dbe0dd63";
     gCtx.fill()
 
 
@@ -54,7 +54,7 @@ function renderBackground(x, y, width, height) {
     gCtx.arc(x + padd + width, y + padd, 7, 0, 2 * Math.PI);
     gCtx.stroke();
 
-    gCtx.fillStyle = "#5F7161";
+    gCtx.fillStyle = "#dbe2dd90";
     gCtx.fill()
 }
 

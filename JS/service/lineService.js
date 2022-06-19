@@ -125,17 +125,16 @@ function setTextOnLine(txt) {
 
 
 function checkCircleSize(offsetX, offsetY) {
-    console.log(offsetX, offsetY);
     let lineIdx = -1
     gMeme.lines.forEach((line, index) => {
 
         if (!line.isSticker) {
-            if (offsetX > line.startX + line.width + 5 && offsetX < line.startX + line.width + 17 &&
-                offsetY > line.startY + 5 && offsetY < line.startY + 20
+            if (offsetX > line.startX + line.width + 2 && offsetX < line.startX + line.width + 20 &&
+                offsetY > line.startY + 2 && offsetY < line.startY + 22
             ) lineIdx = index
         }
-        else if (offsetX > line.startX + line.width + 5 && offsetX < line.startX + line.width + 17 &&
-            offsetY > line.startY + line.height + 5 && offsetY < line.startY + line.height + 20) lineIdx = index
+        else if (offsetX > line.startX + line.width + 2 && offsetX < line.startX + line.width + 20 &&
+            offsetY > line.startY + line.height + 2 && offsetY < line.startY + line.height + 22) lineIdx = index
 
     })
     

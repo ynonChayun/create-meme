@@ -8,6 +8,7 @@ let gCurrLine = gMeme.lines[gMeme.selectedLineIdx]
 
 /**** return meme ****/
 function getMeme() {
+
     return gMeme
 }
 
@@ -16,10 +17,9 @@ function createMeme() {
     const bottomCanvas = document.querySelector('.main-canvas').height - 50
     return {
         selectedImgId: 3,
-        selectedLineIdx: 1,
+        selectedLineIdx: 0,
         lines: [
-            createLine('left', 10, 70),
-            createLine('left', 10, bottomCanvas)
+            createLine('left', 10, 90),
         ],
 
     }
@@ -34,13 +34,13 @@ function setImg(id) {
 function setSizeFont(value) {
     if (value > 0 && gCurrLine.size === 100
         || value < 0 && gCurrLine.size === 26) return
-
     gCurrLine.size += value
 
     //calculation the height according the font-size
     const metrics = gCtx.measureText(gCurrLine.txt);
     const height = metrics.actualBoundingBoxAscent + metrics.actualBoundingBoxDescent;
     gCurrLine.height = height
+    console.log(height);
 
     // //calculation the font-width with padding
     gCurrLine.width = gCtx.measureText(gCurrLine.txt).width + 10

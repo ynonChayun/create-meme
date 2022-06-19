@@ -16,8 +16,9 @@ function renderCanvas() {
 
 //Clear the text input while adding a line
 function changeTxtInput() {
-    const newTxt = document.querySelector('.input-text-line').value
-    if (newTxt) getCurrLine().txt
+    const elInput = document.querySelector('.input-text-line')
+    elInput.value = getCurrLine().txt
+    if (elInput.value === 'Type Your Text')elInput.value = ''
 
 }
 
