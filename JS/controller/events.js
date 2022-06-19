@@ -68,25 +68,28 @@ function getEvPos(ev) {
 
 
 
-function setSizeByCircle(ev){
+function setSizeByCircle(ev) {
     gElCanvas.style.cursor = 'grabbing'
     gElCanvas.addEventListener('mouseup', stopChangeSize)
     gElCanvas.addEventListener('mousemove', changeSizeByMove)
     gStartPos = getEvPos(ev)
 }
 
-function stopChangeSize(){
+function stopChangeSize() {
     gElCanvas.style.cursor = 'grab'
     gElCanvas.removeEventListener("mousemove", changeSizeByMove);
     gElCanvas.removeEventListener('mousedown', setSizeByCircle)
 }
 
-function changeSizeByMove(ev){
+function changeSizeByMove(ev) {
     const currLine = getCurrLine()
     const evPos = getEvPos(ev)
-
-    setSizeFont((evPos.x - gStartPos.x)/6)
+    if (!currLine.isSticker) setSizeFont((evPos.x - gStartPos.x) / 6)
+    else {
+        currLine.height += (evPos.y - gStartPos.y)
+        currLine.width += (evPos.x - gStartPos.x)
+    }
     gStartPos = getEvPos(ev)
     renderCanvas()
-    
+
 }

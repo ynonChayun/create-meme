@@ -20,6 +20,7 @@ function drawStickers(withBackground = true) {
 
     lines.forEach((line, index) => {
         if (line.isSticker) {
+            
             gCtx.drawImage(line.elImg, line.startX, line.startY, line.width, line.height);
             if (index === getCurrLineIdx() && withBackground) {
                 renderBackground(line.startX, line.startY + line.height, line.width, line.height)
