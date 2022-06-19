@@ -97,19 +97,12 @@ let gImgs = [
 function getImgs() {
     //For not making a shallow copy
     let imgs = [...gImgs]
-    
 
-    if (gFilter === 'any') {
-        imgs = imgs.filter(img => img.keywords.filter(key => key.includes(gFilterByText)))
-        if(gFilterByText){
-              imgs = imgs.filter(img => img.keywords.includes(gFilterByText))
-        }
-        return imgs
-    }
     if (gFilter) {
-        imgs = imgs.filter(img => img.keywords.includes(gFilter))
-        if(gFilterByText){
-            imgs = imgs.filter(img => img.keywords.includes(gFilterByText))
+        if (gFilter !== 'any') imgs = imgs.filter(img => img.keywords.includes(gFilter))
+        if (gFilterByText) {
+            console.log('bibi');
+            imgs = imgs.filter(img => img.keywords.some(key => key.startsWith(gFilterByText)) )
         }
     }
     return imgs

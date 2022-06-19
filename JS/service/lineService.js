@@ -110,11 +110,13 @@ function setTextOnLine(txt) {
         var words = txt.split(" ");
         if (words.length === 1) {
             addNewLine(gElCanvas.height)
+            document.querySelector('.input-text-line').value = ''
             changeTxtInput()
         } else {
             const lastWord = words[words.length - 1];
             gCurrLine.txt = words.slice(0, words.length - 1).join(' ')
             addNewLine(gElCanvas.height)
+            getCurrLine().txt = lastWord
             document.querySelector('.input-text-line').value = lastWord
         }
 

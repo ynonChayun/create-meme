@@ -37,12 +37,15 @@
 
 
     <!-- Data-List FOR FILTER -->
-    <datalist id="fonts">
-        <option value="IMPACT">
-        <option value="Arial">
-        <option value="cursive">
-        <option value="Tahoma">
-        <option value="Georgia">
+    <datalist id="keys">
+        <option value="funny">
+        <option value="scarry">
+        <option value="politics">
+        <option value="emotion">
+        <option value="food">
+        <option value="tv-shows">
+        <option value="animals">
+        <option value="movies">
     </datalist>
 
 
@@ -72,7 +75,7 @@
 
         <!-- FILTER SECTION -->
         <section class="gallery-filter flex">
-            <input type="text" class="filter-txt color-white border-rad-30 border-none" placeholder="Search"
+            <input type="text" list="keys" id="keys" class="filter-txt color-white border-rad-30 border-none" placeholder="Search"
                 oninput="onInputFilter(this.value)">
             <div class="filter-words color-white border-rad-30 capitalize">Lorem ipsum dolor sit amet, consectetur
                 adipisicing elit. Illo, porro!</div>

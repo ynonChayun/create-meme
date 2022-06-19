@@ -15,6 +15,7 @@
     padding-top: 10px;
     border: none;
     filter: drop-shadow(0.26px 5px 0 #BBC4D1);
+    font-size: 2rem;
 }
 
 .input-text-line::placeholder {
@@ -22,6 +23,10 @@
     text-transform: uppercase;
     font-family: poppins;
     font-size: 2rem;
+}
+
+.input-text-line:focus {
+    outline: none;
 }
 
 .lines-control {
@@ -87,7 +92,8 @@
     grid-column: span 3;
 }
 
-.font-style::placeholder , .font-style{
+.font-style::placeholder,
+.font-style {
     text-transform: uppercase;
     color: black;
     padding-left: .6rem;
