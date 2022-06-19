@@ -44,7 +44,6 @@ function onCanvasClick({ offsetX, offsetY }) {
     if (isEmpty()) return
 
     if (checkCircleSize(offsetX, offsetY)) {
-        console.log('circle!!!!!!');
         gElCanvas.addEventListener('mousedown', setSizeByCircle)
     }
 
